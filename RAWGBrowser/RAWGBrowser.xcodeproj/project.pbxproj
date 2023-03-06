@@ -58,16 +58,48 @@
 		CDEA316F29B5DA41005D6FFB /* RAWGBrowser */ = {
 			isa = PBXGroup;
 			children = (
-				CDEA317029B5DA41005D6FFB /* AppDelegate.swift */,
-				CDEA317229B5DA41005D6FFB /* SceneDelegate.swift */,
-				CDEA317429B5DA41005D6FFB /* ViewController.swift */,
-				CDEA317929B5DA43005D6FFB /* Assets.xcassets */,
-				CDEA317B29B5DA43005D6FFB /* LaunchScreen.storyboard */,
+				CDEA318B29B5DD2F005D6FFB /* ViewControllers */,
+				CDEA318A29B5DD26005D6FFB /* Services */,
+				CDEA318929B5DD16005D6FFB /* Coordinators */,
+				CDEA318829B5DD03005D6FFB /* Core */,
 				CDEA317E29B5DA43005D6FFB /* Info.plist */,
-				CDEA318429B5DB42005D6FFB /* APIService.swift */,
-				CDEA318629B5DB54005D6FFB /* MainCoordinator.swift */,
 			);
 			path = RAWGBrowser;
+			sourceTree = "<group>";
+		};
+		CDEA318829B5DD03005D6FFB /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				CDEA317929B5DA43005D6FFB /* Assets.xcassets */,
+				CDEA317B29B5DA43005D6FFB /* LaunchScreen.storyboard */,
+				CDEA317029B5DA41005D6FFB /* AppDelegate.swift */,
+				CDEA317229B5DA41005D6FFB /* SceneDelegate.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		CDEA318929B5DD16005D6FFB /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				CDEA318629B5DB54005D6FFB /* MainCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		CDEA318A29B5DD26005D6FFB /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CDEA318429B5DB42005D6FFB /* APIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CDEA318B29B5DD2F005D6FFB /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CDEA317429B5DA41005D6FFB /* ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
