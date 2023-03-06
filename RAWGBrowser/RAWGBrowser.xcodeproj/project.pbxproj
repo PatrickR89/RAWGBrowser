@@ -9,23 +9,35 @@
 /* Begin PBXBuildFile section */
 		CDEA317129B5DA41005D6FFB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA317029B5DA41005D6FFB /* AppDelegate.swift */; };
 		CDEA317329B5DA41005D6FFB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA317229B5DA41005D6FFB /* SceneDelegate.swift */; };
-		CDEA317529B5DA41005D6FFB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA317429B5DA41005D6FFB /* ViewController.swift */; };
+		CDEA317529B5DA41005D6FFB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA317429B5DA41005D6FFB /* OnboardingViewController.swift */; };
 		CDEA317A29B5DA43005D6FFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDEA317929B5DA43005D6FFB /* Assets.xcassets */; };
 		CDEA317D29B5DA43005D6FFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDEA317B29B5DA43005D6FFB /* LaunchScreen.storyboard */; };
 		CDEA318529B5DB42005D6FFB /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA318429B5DB42005D6FFB /* APIService.swift */; };
 		CDEA318729B5DB54005D6FFB /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA318629B5DB54005D6FFB /* MainCoordinator.swift */; };
+		CDEA319029B5DE59005D6FFB /* GenreModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA318F29B5DE59005D6FFB /* GenreModels.swift */; };
+		CDEA319529B5E5C6005D6FFB /* OnboardingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA319429B5E5C6005D6FFB /* OnboardingController.swift */; };
+		CDEA319729B5E5E0005D6FFB /* GenreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA319629B5E5E0005D6FFB /* GenreViewModel.swift */; };
+		CDEA319B29B5FA69005D6FFB /* mockGenres.json in Resources */ = {isa = PBXBuildFile; fileRef = CDEA319A29B5FA69005D6FFB /* mockGenres.json */; };
+		CDEA319D29B5FCAC005D6FFB /* GenreDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA319C29B5FCAC005D6FFB /* GenreDetailViewCell.swift */; };
+		CDEA319F29B61EAC005D6FFB /* mockGenreDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = CDEA319E29B61EAB005D6FFB /* mockGenreDetails.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CDEA316D29B5DA41005D6FFB /* RAWGBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RAWGBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDEA317029B5DA41005D6FFB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDEA317229B5DA41005D6FFB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CDEA317429B5DA41005D6FFB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CDEA317429B5DA41005D6FFB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		CDEA317929B5DA43005D6FFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDEA317C29B5DA43005D6FFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDEA317E29B5DA43005D6FFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDEA318429B5DB42005D6FFB /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		CDEA318629B5DB54005D6FFB /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		CDEA318F29B5DE59005D6FFB /* GenreModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreModels.swift; sourceTree = "<group>"; };
+		CDEA319429B5E5C6005D6FFB /* OnboardingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingController.swift; sourceTree = "<group>"; };
+		CDEA319629B5E5E0005D6FFB /* GenreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreViewModel.swift; sourceTree = "<group>"; };
+		CDEA319A29B5FA69005D6FFB /* mockGenres.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockGenres.json; sourceTree = "<group>"; };
+		CDEA319C29B5FCAC005D6FFB /* GenreDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreDetailViewCell.swift; sourceTree = "<group>"; };
+		CDEA319E29B61EAB005D6FFB /* mockGenreDetails.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockGenreDetails.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +70,17 @@
 		CDEA316F29B5DA41005D6FFB /* RAWGBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				CDEA319329B5E585005D6FFB /* Controllers */,
+				CDEA318E29B5DE08005D6FFB /* Views */,
+				CDEA318D29B5DE01005D6FFB /* ViewModels */,
+				CDEA318C29B5DDFC005D6FFB /* Models */,
 				CDEA318B29B5DD2F005D6FFB /* ViewControllers */,
 				CDEA318A29B5DD26005D6FFB /* Services */,
 				CDEA318929B5DD16005D6FFB /* Coordinators */,
 				CDEA318829B5DD03005D6FFB /* Core */,
 				CDEA317E29B5DA43005D6FFB /* Info.plist */,
+				CDEA319A29B5FA69005D6FFB /* mockGenres.json */,
+				CDEA319E29B61EAB005D6FFB /* mockGenreDetails.json */,
 			);
 			path = RAWGBrowser;
 			sourceTree = "<group>";
@@ -97,9 +115,41 @@
 		CDEA318B29B5DD2F005D6FFB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				CDEA317429B5DA41005D6FFB /* ViewController.swift */,
+				CDEA317429B5DA41005D6FFB /* OnboardingViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CDEA318C29B5DDFC005D6FFB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CDEA318F29B5DE59005D6FFB /* GenreModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CDEA318D29B5DE01005D6FFB /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				CDEA319629B5E5E0005D6FFB /* GenreViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		CDEA318E29B5DE08005D6FFB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CDEA319C29B5FCAC005D6FFB /* GenreDetailViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CDEA319329B5E585005D6FFB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CDEA319429B5E5C6005D6FFB /* OnboardingController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -161,6 +211,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDEA317D29B5DA43005D6FFB /* LaunchScreen.storyboard in Resources */,
+				CDEA319B29B5FA69005D6FFB /* mockGenres.json in Resources */,
+				CDEA319F29B61EAC005D6FFB /* mockGenreDetails.json in Resources */,
 				CDEA317A29B5DA43005D6FFB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,9 +224,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDEA317529B5DA41005D6FFB /* ViewController.swift in Sources */,
+				CDEA317529B5DA41005D6FFB /* OnboardingViewController.swift in Sources */,
 				CDEA317129B5DA41005D6FFB /* AppDelegate.swift in Sources */,
 				CDEA318529B5DB42005D6FFB /* APIService.swift in Sources */,
+				CDEA319D29B5FCAC005D6FFB /* GenreDetailViewCell.swift in Sources */,
+				CDEA319729B5E5E0005D6FFB /* GenreViewModel.swift in Sources */,
+				CDEA319529B5E5C6005D6FFB /* OnboardingController.swift in Sources */,
+				CDEA319029B5DE59005D6FFB /* GenreModels.swift in Sources */,
 				CDEA318729B5DB54005D6FFB /* MainCoordinator.swift in Sources */,
 				CDEA317329B5DA41005D6FFB /* SceneDelegate.swift in Sources */,
 			);

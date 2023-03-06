@@ -11,6 +11,7 @@ class MainCoordinator {
 
     let navController: UINavigationController
     let service: APIService
+    var onboardingController: OnboardingController?
 
     init(_ navController: UINavigationController, _ service: APIService) {
         self.navController = navController
@@ -18,7 +19,11 @@ class MainCoordinator {
     }
 
     func start() {
-        let viewController = ViewController()
+        let genreData = service.mockFetchGenres()
+        onboardingController = OnboardingController()
+        onboardingController?.populateData(genreData)
+        guard let onboardingController else { return }
+        let viewController = OnboardingViewController(controller: onboardingController)
         navController.setViewControllers([viewController], animated: true)
     }
 }
