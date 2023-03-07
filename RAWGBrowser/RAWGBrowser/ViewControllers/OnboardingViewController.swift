@@ -70,7 +70,6 @@ extension OnboardingViewController: UICollectionViewDelegate {
                                  y: collectionView.frame.size.height / 2 + scrollView.contentOffset.y)
 
             guard let indexPath = collectionView.indexPathForItem(at: center) else { return }
-            print(indexPath)
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
     }
@@ -81,7 +80,6 @@ extension OnboardingViewController: UICollectionViewDelegate {
                                  y: collectionView.frame.size.height / 2 + scrollView.contentOffset.y)
 
             guard let indexPath = collectionView.indexPathForItem(at: center) else { return }
-            print(indexPath)
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
     }

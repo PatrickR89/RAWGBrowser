@@ -7,20 +7,78 @@
 
 import Foundation
 
+protocol APIServiceDelegate: AnyObject {
+    func service(didRecieveData data: [GenreModel])
+    func service(didRecieveError error: String)
+    func service(isWaiting: Bool)
+}
+
 class APIService {
 
-    func mockFetchGenres() -> [GenreModel] {
+    weak var delegate: APIServiceDelegate?
+
+    func mockFetchGenres() {
         let path = Bundle.main.path(forResource: "mockGenres", ofType: "json")
         let pathURL = URL(filePath: path!)
         do {
             let data = try Data(contentsOf: pathURL)
             let genresResponse = try JSONDecoder().decode(GenreResponseModel.self, from: data)
             let genres = genresResponse.results
-            return genres
+            delegate?.service(didRecieveData: genres)
         } catch {
             print(error)
         }
+    }
 
-        return []
+    func fetchGenres() {
+        let url = URL(string: "\(APIConstants.baseURL)\(APIConstants.genresURL)")!
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = ["Content-Type": "application/json"]
+        request.timeoutInterval = 5
+
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+
+            if let error = error {
+                DispatchQueue.main.async { [weak self] in
+                    self?.delegate?.service(isWaiting: false)
+                    self?.delegate?.service(didRecieveError: error.localizedDescription)
+                }
+
+                return
+            }
+
+            guard let response = response as? HTTPURLResponse else { return }
+            guard response.statusCode == 200 else {
+                if response.statusCode == 403 || response.statusCode == 401 {
+                    self?.delegate?.service(didRecieveError: "Error occured while authenticating")
+                } else if response.statusCode >= 400 && response.statusCode < 500 {
+                    self?.delegate?.service(didRecieveError: "Error occured in request")
+                } else if response.statusCode >= 500 {
+                    self?.delegate?.service(didRecieveError: "Error occure in response")
+                }
+                self?.delegate?.service(isWaiting: false)
+                return
+            }
+
+            guard let data = data else {
+                self?.delegate?.service(didRecieveError: "Error occured while retrieving data")
+                self?.delegate?.service(isWaiting: false)
+                return
+            }
+            guard let respData = try? JSONDecoder().decode(GenreResponseModel.self, from: data) else {
+                self?.delegate?.service(didRecieveError: "Error occured while retrieving data")
+                self?.delegate?.service(isWaiting: false)
+                return
+            }
+
+            let genres = respData.results
+            self?.delegate?.service(didRecieveData: genres)
+            self?.delegate?.service(isWaiting: false)
+        }
+
+        delegate?.service(isWaiting: true)
+        task.resume()
     }
 }

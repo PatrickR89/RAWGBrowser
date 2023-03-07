@@ -37,7 +37,6 @@ class OnboardingController {
 
     func updateSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Int, Int>()
-        print(genres)
 
         snapshot.appendSections([0])
 
