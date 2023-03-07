@@ -14,7 +14,7 @@ class GameViewCell: UITableViewCell {
 
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = ColorConstants.textColor
+        label.textColor = ColorConstants.orangeAccent
         label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         label.numberOfLines = 0
         label.layer.zPosition = 100
@@ -38,7 +38,7 @@ class GameViewCell: UITableViewCell {
     let ratingLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 10)
-        label.textColor = .gray
+        label.textColor = ColorConstants.textColor
         label.frame.size.height = 10
         label.frame.size.width = 30
         return label
@@ -55,7 +55,7 @@ class GameViewCell: UITableViewCell {
 
     func setupData(_ viewModel: GameListElementViewModel) {
         nameLabel.text = viewModel.name
-        ratingLabel.text = "\(viewModel.rating)"
+        ratingLabel.text = "Rating: \(viewModel.rating)"
         if let url = viewModel.background_image {
             posterImageView.sd_setImage(with: url)
         }

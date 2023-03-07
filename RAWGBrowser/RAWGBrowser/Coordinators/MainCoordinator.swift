@@ -90,12 +90,24 @@ class MainCoordinator {
         guard let gameListController else { return }
         DispatchQueue.main.async {
             let viewController = GameListViewController(gameListController)
+            viewController.delegate = self.service
             self.navController.setViewControllers([viewController], animated: true)
+        }
+    }
+
+    func presentGameDetailsViewController(with data: GameDetailViewModel) {
+        DispatchQueue.main.async {
+            let viewController = GameDetailViewController(data)
+            self.navController.pushViewController(viewController, animated: true)
         }
     }
 }
 
 extension MainCoordinator: APIServiceDelegate {
+    func service(didReciveGame detail: GameDetailViewModel) {
+        presentGameDetailsViewController(with: detail)
+    }
+
     func service(didRecieveGameList list: [GameListElementModel]) {
         presentGameListViewController(with: list)
     }

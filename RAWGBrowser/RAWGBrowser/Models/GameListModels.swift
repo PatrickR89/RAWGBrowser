@@ -9,7 +9,7 @@ import Foundation
 
 struct GameListResponseModel: Codable {
     let count: Int
-    let next: String
+    let next: String?
     let previous: String?
     let results: [GameListElementModel]
 }

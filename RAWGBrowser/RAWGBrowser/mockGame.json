@@ -1,0 +1,425 @@
+
+{
+    "id": 3939,
+    "slug": "payday-2",
+    "name": "PAYDAY 2",
+    "name_original": "PAYDAY 2",
+    "description": "<p>The gang is back, and they have bigger and better plans. Objective based cooperative FPS became more complicated. The classic group of Hoxton, Dallas, Chains and Wolf got reinforcement, and now Payday Gang consists of 21 heisters, some of which are based on movie characters or even Youtubers. Players will be able to customize their own private arsenal, their masks, and skills, to complete the missions in their own way, be it stealthy sneak-in or full frontal assault. After completing missions, players will receive EXP points, money and a chance to get a special item that can be a gun modification, mask or a safe containing weapon skins.<br />\nPayday 2 is a multiplayer game, meaning, that even during offline missions players will be followed by AI characters, whose loadouts, masks and perks can be customized as well. This game has been supported by the developers for many years, and amount of DLC speaks plenty of their dedication to the player base.</p>",
+    "metacritic": 79,
+    "metacritic_platforms": [],
+    "released": "2013-08-13",
+    "tba": false,
+    "updated": "2023-03-05T21:00:05",
+    "background_image": "https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg",
+    "background_image_additional": "https://media.rawg.io/media/screenshots/87f/87f88f6d70134609d92b825a56921f54.jpg",
+    "website": "http://www.crimenet.info",
+    "rating": 3.51,
+    "rating_top": 4,
+    "ratings": [
+        {
+            "id": 4,
+            "title": "recommended",
+            "count": 1025,
+            "percent": 51.82
+        },
+        {
+            "id": 3,
+            "title": "meh",
+            "count": 544,
+            "percent": 27.5
+        },
+        {
+            "id": 1,
+            "title": "skip",
+            "count": 208,
+            "percent": 10.52
+        },
+        {
+            "id": 5,
+            "title": "exceptional",
+            "count": 201,
+            "percent": 10.16
+        }
+    ],
+    "reactions": {
+        "5": 1,
+        "8": 2,
+        "10": 1,
+        "12": 2,
+        "15": 1,
+        "16": 1
+    },
+    "added": 11716,
+    "added_by_status": {
+        "yet": 441,
+        "owned": 9124,
+        "beaten": 702,
+        "toplay": 85,
+        "dropped": 1253,
+        "playing": 111
+    },
+    "playtime": 9,
+    "screenshots_count": 76,
+    "movies_count": 1,
+    "creators_count": 5,
+    "achievements_count": 1389,
+    "parent_achievements_count": 1481,
+    "reddit_url": "",
+    "reddit_name": "",
+    "reddit_description": "",
+    "reddit_logo": "",
+    "reddit_count": 0,
+    "twitch_count": 153,
+    "youtube_count": 1000000,
+    "reviews_text_count": 16,
+    "ratings_count": 1962,
+    "suggestions_count": 396,
+    "alternative_names": [
+        "Payday 2: Crimewave Edition"
+    ],
+    "metacritic_url": "",
+    "parents_count": 0,
+    "additions_count": 7,
+    "game_series_count": 3,
+    "user_game": null,
+    "reviews_count": 1978,
+    "saturated_color": "0f0f0f",
+    "dominant_color": "0f0f0f",
+    "parent_platforms": [
+        {
+            "platform": {
+                "id": 1,
+                "name": "PC",
+                "slug": "pc"
+            }
+        },
+        {
+            "platform": {
+                "id": 3,
+                "name": "Xbox",
+                "slug": "xbox"
+            }
+        },
+        {
+            "platform": {
+                "id": 6,
+                "name": "Linux",
+                "slug": "linux"
+            }
+        }
+    ],
+    "platforms": [
+        {
+            "platform": {
+                "id": 6,
+                "name": "Linux",
+                "slug": "linux",
+                "image": null,
+                "year_end": null,
+                "year_start": null,
+                "games_count": 78605,
+                "image_background": "https://media.rawg.io/media/games/9dd/9ddabb34840ea9227556670606cf8ea3.jpg"
+            },
+            "released_at": "2013-08-13",
+            "requirements": {}
+        },
+        {
+            "platform": {
+                "id": 4,
+                "name": "PC",
+                "slug": "pc",
+                "image": null,
+                "year_end": null,
+                "year_start": null,
+                "games_count": 532516,
+                "image_background": "https://media.rawg.io/media/games/d82/d82990b9c67ba0d2d09d4e6fa88885a7.jpg"
+            },
+            "released_at": "2013-08-13",
+            "requirements": {
+                "minimum": "Minimum:\nOS:Windows 7\nProcessor:2 GHz Intel Dual Core Processor\nMemory:4 GB RAM\nGraphics:Nvidia &amp; AMD (512MB VRAM)\nDirectX®:9.0c\nHard Drive:31 GB HD space \nSound:DirectX 9.0c compatible",
+                "recommended": "Recommended:\nOS:Windows 10\nProcessor:2.3 GHz Intel Quad Core Processor\nMemory:8 GB RAM\nGraphics:Nvidia &amp; AMD (1GB VRAM)\nDirectX®:9.0c\nHard Drive:45 GB HD space\nSound:DirectX 9.0c compatible"
+            }
+        },
+        {
+            "platform": {
+                "id": 1,
+                "name": "Xbox One",
+                "slug": "xbox-one",
+                "image": null,
+                "year_end": null,
+                "year_start": null,
+                "games_count": 5481,
+                "image_background": "https://media.rawg.io/media/games/618/618c2031a07bbff6b4f611f10b6bcdbc.jpg"
+            },
+            "released_at": "2013-08-13",
+            "requirements": {}
+        }
+    ],
+    "stores": [
+        {
+            "id": 4258,
+            "url": "",
+            "store": {
+                "id": 3,
+                "name": "PlayStation Store",
+                "slug": "playstation-store",
+                "domain": "store.playstation.com",
+                "games_count": 7797,
+                "image_background": "https://media.rawg.io/media/games/16b/16b1b7b36e2042d1128d5a3e852b3b2f.jpg"
+            }
+        },
+        {
+            "id": 10780,
+            "url": "",
+            "store": {
+                "id": 1,
+                "name": "Steam",
+                "slug": "steam",
+                "domain": "store.steampowered.com",
+                "games_count": 72589,
+                "image_background": "https://media.rawg.io/media/games/942/9424d6bb763dc38d9378b488603c87fa.jpg"
+            }
+        },
+        {
+            "id": 27939,
+            "url": "",
+            "store": {
+                "id": 6,
+                "name": "Nintendo Store",
+                "slug": "nintendo",
+                "domain": "nintendo.com",
+                "games_count": 8860,
+                "image_background": "https://media.rawg.io/media/games/f99/f9979698c43fd84c3ab69280576dd3af.jpg"
+            }
+        },
+        {
+            "id": 34027,
+            "url": "",
+            "store": {
+                "id": 7,
+                "name": "Xbox 360 Store",
+                "slug": "xbox360",
+                "domain": "marketplace.xbox.com",
+                "games_count": 1914,
+                "image_background": "https://media.rawg.io/media/games/e2d/e2d3f396b16dded0f841c17c9799a882.jpg"
+            }
+        }
+    ],
+    "developers": [
+        {
+            "id": 237,
+            "name": "505 Games",
+            "slug": "505-games",
+            "games_count": 51,
+            "image_background": "https://media.rawg.io/media/screenshots/09c/09c4e62ffe10a6f087d9f86e2e562681.jpg"
+        },
+        {
+            "id": 9157,
+            "name": "OVERKILL Software",
+            "slug": "overkill-software",
+            "games_count": 11,
+            "image_background": "https://media.rawg.io/media/screenshots/5d6/5d68f633e0aca98923dc21eab6045d71.jpg"
+        }
+    ],
+    "genres": [
+        {
+            "id": 4,
+            "name": "Action",
+            "slug": "action",
+            "games_count": 176629,
+            "image_background": "https://media.rawg.io/media/games/26d/26d4437715bee60138dab4a7c8c59c92.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Shooter",
+            "slug": "shooter",
+            "games_count": 62505,
+            "image_background": "https://media.rawg.io/media/games/e6d/e6de699bd788497f4b52e2f41f9698f2.jpg"
+        }
+    ],
+    "tags": [
+        {
+            "id": 31,
+            "name": "Singleplayer",
+            "slug": "singleplayer",
+            "language": "eng",
+            "games_count": 207421,
+            "image_background": "https://media.rawg.io/media/games/120/1201a40e4364557b124392ee50317b99.jpg"
+        },
+        {
+            "id": 40847,
+            "name": "Steam Achievements",
+            "slug": "steam-achievements",
+            "language": "eng",
+            "games_count": 29226,
+            "image_background": "https://media.rawg.io/media/games/b49/b4912b5dbfc7ed8927b65f05b8507f6c.jpg"
+        },
+        {
+            "id": 7,
+            "name": "Multiplayer",
+            "slug": "multiplayer",
+            "language": "eng",
+            "games_count": 35401,
+            "image_background": "https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg"
+        },
+        {
+            "id": 40836,
+            "name": "Full controller support",
+            "slug": "full-controller-support",
+            "language": "eng",
+            "games_count": 13734,
+            "image_background": "https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg"
+        },
+        {
+            "id": 7808,
+            "name": "steam-trading-cards",
+            "slug": "steam-trading-cards",
+            "language": "eng",
+            "games_count": 7582,
+            "image_background": "https://media.rawg.io/media/games/234/23410661770ae13eac11066980834367.jpg"
+        },
+        {
+            "id": 42,
+            "name": "Great Soundtrack",
+            "slug": "great-soundtrack",
+            "language": "eng",
+            "games_count": 3230,
+            "image_background": "https://media.rawg.io/media/games/7cf/7cfc9220b401b7a300e409e539c9afd5.jpg"
+        },
+        {
+            "id": 18,
+            "name": "Co-op",
+            "slug": "co-op",
+            "language": "eng",
+            "games_count": 9621,
+            "image_background": "https://media.rawg.io/media/games/49c/49c3dfa4ce2f6f140cc4825868e858cb.jpg"
+        },
+        {
+            "id": 411,
+            "name": "cooperative",
+            "slug": "cooperative",
+            "language": "eng",
+            "games_count": 3897,
+            "image_background": "https://media.rawg.io/media/games/ec3/ec3a7db7b8ab5a71aad622fe7c62632f.jpg"
+        },
+        {
+            "id": 8,
+            "name": "First-Person",
+            "slug": "first-person",
+            "language": "eng",
+            "games_count": 28739,
+            "image_background": "https://media.rawg.io/media/games/328/3283617cb7d75d67257fc58339188742.jpg"
+        },
+        {
+            "id": 30,
+            "name": "FPS",
+            "slug": "fps",
+            "language": "eng",
+            "games_count": 12472,
+            "image_background": "https://media.rawg.io/media/games/f87/f87457e8347484033cb34cde6101d08d.jpg"
+        },
+        {
+            "id": 9,
+            "name": "Online Co-Op",
+            "slug": "online-co-op",
+            "language": "eng",
+            "games_count": 4158,
+            "image_background": "https://media.rawg.io/media/games/0bd/0bd5646a3d8ee0ac3314bced91ea306d.jpg"
+        },
+        {
+            "id": 4,
+            "name": "Funny",
+            "slug": "funny",
+            "language": "eng",
+            "games_count": 22796,
+            "image_background": "https://media.rawg.io/media/games/c6b/c6bfece1daf8d06bc0a60632ac78e5bf.jpg"
+        },
+        {
+            "id": 15,
+            "name": "Stealth",
+            "slug": "stealth",
+            "language": "eng",
+            "games_count": 5723,
+            "image_background": "https://media.rawg.io/media/games/310/3106b0e012271c5ffb16497b070be739.jpg"
+        },
+        {
+            "id": 80,
+            "name": "Tactical",
+            "slug": "tactical",
+            "language": "eng",
+            "games_count": 3967,
+            "image_background": "https://media.rawg.io/media/games/476/476178ef18ab0534771d099f51cdc694.jpg"
+        },
+        {
+            "id": 40837,
+            "name": "In-App Purchases",
+            "slug": "in-app-purchases",
+            "language": "eng",
+            "games_count": 1973,
+            "image_background": "https://media.rawg.io/media/games/447/4470c1e76f01acfaf5af9c207d1c1c92.jpg"
+        },
+        {
+            "id": 11,
+            "name": "Team-Based",
+            "slug": "team-based",
+            "language": "eng",
+            "games_count": 1241,
+            "image_background": "https://media.rawg.io/media/screenshots/88b/88b5f27f07d6ca2f8a3cd0b36e03a670.jpg"
+        },
+        {
+            "id": 144,
+            "name": "Crime",
+            "slug": "crime",
+            "language": "eng",
+            "games_count": 2529,
+            "image_background": "https://media.rawg.io/media/games/54a/54a3e4c617217848dc43c4de9989fe37.jpg"
+        },
+        {
+            "id": 171,
+            "name": "PvE",
+            "slug": "pve",
+            "language": "eng",
+            "games_count": 2773,
+            "image_background": "https://media.rawg.io/media/games/82b/82be203e68d737762846203811165933.jpg"
+        },
+        {
+            "id": 216,
+            "name": "Heist",
+            "slug": "heist",
+            "language": "eng",
+            "games_count": 437,
+            "image_background": "https://media.rawg.io/media/games/a0e/a0ef08621301a1eab5e04fa5c96978fa.jpeg"
+        },
+        {
+            "id": 274,
+            "name": "Gun Customization",
+            "slug": "gun-customization",
+            "language": "eng",
+            "games_count": 355,
+            "image_background": "https://media.rawg.io/media/games/578/578dc93c4b968ae544f0e9af5017bc91.jpg"
+        }
+    ],
+    "publishers": [
+        {
+            "id": 243,
+            "name": "505 Games",
+            "slug": "505-games",
+            "games_count": 166,
+            "image_background": "https://media.rawg.io/media/screenshots/d9f/d9f8b7d7832a2e1d9b795edeccca15f2.jpg"
+        },
+        {
+            "id": 10684,
+            "name": "Starbreeze",
+            "slug": "starbreeze-ab",
+            "games_count": 1,
+            "image_background": "https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg"
+        }
+    ],
+    "esrb_rating": {
+        "id": 5,
+        "name": "Adults Only",
+        "slug": "adults-only"
+    },
+    "clip": null,
+    "description_raw": "The gang is back, and they have bigger and better plans. Objective based cooperative FPS became more complicated. The classic group of Hoxton, Dallas, Chains and Wolf got reinforcement, and now Payday Gang consists of 21 heisters, some of which are based on movie characters or even Youtubers. Players will be able to customize their own private arsenal, their masks, and skills, to complete the missions in their own way, be it stealthy sneak-in or full frontal assault. After completing missions, players will receive EXP points, money and a chance to get a special item that can be a gun modification, mask or a safe containing weapon skins.\r\nPayday 2 is a multiplayer game, meaning, that even during offline missions players will be followed by AI characters, whose loadouts, masks and perks can be customized as well. This game has been supported by the developers for many years, and amount of DLC speaks plenty of their dedication to the player base."
+}

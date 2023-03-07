@@ -8,6 +8,7 @@
 import Foundation
 
 protocol APIServiceDelegate: AnyObject {
+    func service(didReciveGame detail: GameDetailViewModel)
     func service(didRecieveData data: [GenreModel])
     func service(didRecieveError error: String)
     func service(isWaiting: Bool)
@@ -40,6 +41,21 @@ class APIService {
             let genresResponse = try JSONDecoder().decode(GameListResponseModel.self, from: data)
             let games = genresResponse.results
             delegate?.service(didRecieveGameList: games)
+        } catch {
+            print(error)
+        }
+    }
+
+    func mockFetchGame(_ gameId: Int) {
+        print("Game original id: \(gameId)")
+        let path = Bundle.main.path(forResource: "mockGame", ofType: "json")
+        let pathURL = URL(filePath: path!)
+        do {
+            let data = try Data(contentsOf: pathURL)
+            let game = try JSONDecoder().decode(GameModel.self, from: data)
+            let gameViewModel = GameDetailViewModel(game)
+            delegate?.service(didReciveGame: gameViewModel)
+
         } catch {
             print(error)
         }
@@ -154,5 +170,11 @@ extension APIService: GenreDetailViewCellAction {
     func cellDidRecieveTap(for genreId: Int) {
 //        fetchGamesForGenre(genreId)
         mockFetchGamesForGenre(genreId)
+    }
+}
+
+extension APIService: GameListViewControllerDelegate {
+    func viewController(didTapCellWith id: Int) {
+        mockFetchGame(id)
     }
 }

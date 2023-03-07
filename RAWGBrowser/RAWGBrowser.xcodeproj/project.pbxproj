@@ -31,6 +31,13 @@
 		CDEA31B329B741C6005D6FFB /* GameListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31B229B741C6005D6FFB /* GameListController.swift */; };
 		CDEA31B529B7421E005D6FFB /* GameListElementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31B429B7421E005D6FFB /* GameListElementViewModel.swift */; };
 		CDEA31B729B74329005D6FFB /* GameViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31B629B74329005D6FFB /* GameViewCell.swift */; };
+		CDEA31B929B7585D005D6FFB /* mockGame.json in Resources */ = {isa = PBXBuildFile; fileRef = CDEA31B829B7585D005D6FFB /* mockGame.json */; };
+		CDEA31BB29B7588E005D6FFB /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31BA29B7588E005D6FFB /* GameModel.swift */; };
+		CDEA31BD29B75F52005D6FFB /* GameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31BC29B75F52005D6FFB /* GameDetailViewController.swift */; };
+		CDEA31BF29B75F6E005D6FFB /* GameDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31BE29B75F6E005D6FFB /* GameDetailViewModel.swift */; };
+		CDEA31C129B767FC005D6FFB /* GameDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31C029B767FC005D6FFB /* GameDetailsController.swift */; };
+		CDEA31C329B768C2005D6FFB /* GameDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31C229B768C2005D6FFB /* GameDetailViewCell.swift */; };
+		CDEA31C529B76CC7005D6FFB /* HeroImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31C429B76CC7005D6FFB /* HeroImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +66,13 @@
 		CDEA31B229B741C6005D6FFB /* GameListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListController.swift; sourceTree = "<group>"; };
 		CDEA31B429B7421E005D6FFB /* GameListElementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListElementViewModel.swift; sourceTree = "<group>"; };
 		CDEA31B629B74329005D6FFB /* GameViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewCell.swift; sourceTree = "<group>"; };
+		CDEA31B829B7585D005D6FFB /* mockGame.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockGame.json; sourceTree = "<group>"; };
+		CDEA31BA29B7588E005D6FFB /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		CDEA31BC29B75F52005D6FFB /* GameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewController.swift; sourceTree = "<group>"; };
+		CDEA31BE29B75F6E005D6FFB /* GameDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewModel.swift; sourceTree = "<group>"; };
+		CDEA31C029B767FC005D6FFB /* GameDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsController.swift; sourceTree = "<group>"; };
+		CDEA31C229B768C2005D6FFB /* GameDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewCell.swift; sourceTree = "<group>"; };
+		CDEA31C429B76CC7005D6FFB /* HeroImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +117,7 @@
 				CDEA318829B5DD03005D6FFB /* Core */,
 				CDEA317E29B5DA43005D6FFB /* Info.plist */,
 				CDEA319A29B5FA69005D6FFB /* mockGenres.json */,
+				CDEA31B829B7585D005D6FFB /* mockGame.json */,
 				CDEA319E29B61EAB005D6FFB /* mockGenreDetails.json */,
 				CDEA31AC29B73D96005D6FFB /* mockGenreList.json */,
 			);
@@ -141,6 +156,7 @@
 			children = (
 				CDEA317429B5DA41005D6FFB /* OnboardingViewController.swift */,
 				CDEA31B029B741BA005D6FFB /* GameListViewController.swift */,
+				CDEA31BC29B75F52005D6FFB /* GameDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -150,6 +166,7 @@
 			children = (
 				CDEA318F29B5DE59005D6FFB /* GenreModels.swift */,
 				CDEA31AE29B73DD3005D6FFB /* GameListModels.swift */,
+				CDEA31BA29B7588E005D6FFB /* GameModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -159,6 +176,7 @@
 			children = (
 				CDEA319629B5E5E0005D6FFB /* GenreViewModel.swift */,
 				CDEA31B429B7421E005D6FFB /* GameListElementViewModel.swift */,
+				CDEA31BE29B75F6E005D6FFB /* GameDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -170,6 +188,8 @@
 				CDEA31A829B727B0005D6FFB /* ServiceNotificationView.swift */,
 				CDEA31AA29B72A19005D6FFB /* WaitingNotificationView.swift */,
 				CDEA31B629B74329005D6FFB /* GameViewCell.swift */,
+				CDEA31C229B768C2005D6FFB /* GameDetailViewCell.swift */,
+				CDEA31C429B76CC7005D6FFB /* HeroImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +199,7 @@
 			children = (
 				CDEA319429B5E5C6005D6FFB /* OnboardingController.swift */,
 				CDEA31B229B741C6005D6FFB /* GameListController.swift */,
+				CDEA31C029B767FC005D6FFB /* GameDetailsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -257,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDEA317D29B5DA43005D6FFB /* LaunchScreen.storyboard in Resources */,
+				CDEA31B929B7585D005D6FFB /* mockGame.json in Resources */,
 				CDEA319B29B5FA69005D6FFB /* mockGenres.json in Resources */,
 				CDEA31AD29B73D96005D6FFB /* mockGenreList.json in Resources */,
 				CDEA319F29B61EAC005D6FFB /* mockGenreDetails.json in Resources */,
@@ -271,16 +293,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDEA31C129B767FC005D6FFB /* GameDetailsController.swift in Sources */,
 				CDEA317529B5DA41005D6FFB /* OnboardingViewController.swift in Sources */,
+				CDEA31C529B76CC7005D6FFB /* HeroImageView.swift in Sources */,
+				CDEA31BF29B75F6E005D6FFB /* GameDetailViewModel.swift in Sources */,
+				CDEA31BD29B75F52005D6FFB /* GameDetailViewController.swift in Sources */,
 				CDEA31AF29B73DD3005D6FFB /* GameListModels.swift in Sources */,
 				CDEA31A729B723DC005D6FFB /* APIConstants.swift in Sources */,
 				CDEA317129B5DA41005D6FFB /* AppDelegate.swift in Sources */,
 				CDEA31B729B74329005D6FFB /* GameViewCell.swift in Sources */,
+				CDEA31C329B768C2005D6FFB /* GameDetailViewCell.swift in Sources */,
 				CDEA318529B5DB42005D6FFB /* APIService.swift in Sources */,
 				CDEA31A229B71978005D6FFB /* ColorConstants.swift in Sources */,
 				CDEA319D29B5FCAC005D6FFB /* GenreDetailViewCell.swift in Sources */,
 				CDEA31B129B741BA005D6FFB /* GameListViewController.swift in Sources */,
 				CDEA319729B5E5E0005D6FFB /* GenreViewModel.swift in Sources */,
+				CDEA31BB29B7588E005D6FFB /* GameModel.swift in Sources */,
 				CDEA31B529B7421E005D6FFB /* GameListElementViewModel.swift in Sources */,
 				CDEA31AB29B72A19005D6FFB /* WaitingNotificationView.swift in Sources */,
 				CDEA31A929B727B0005D6FFB /* ServiceNotificationView.swift in Sources */,

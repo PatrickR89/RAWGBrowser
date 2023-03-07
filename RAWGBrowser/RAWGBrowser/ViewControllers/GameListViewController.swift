@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol GameListViewControllerDelegate: AnyObject {
+    func viewController(didTapCellWith id: Int)
+}
+
 class GameListViewController: UIViewController {
 
     let controller: GameListController
+    weak var delegate: GameListViewControllerDelegate?
 
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -64,5 +69,7 @@ class GameListViewController: UIViewController {
 extension GameListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        guard let itemIdentifier = controller.diffableDataSource?.itemIdentifier(for: indexPath) else { return }
+        delegate?.viewController(didTapCellWith: itemIdentifier)
     }
 }
