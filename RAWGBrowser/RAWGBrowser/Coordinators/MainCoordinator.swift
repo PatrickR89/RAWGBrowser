@@ -12,6 +12,7 @@ class MainCoordinator {
     let navController: UINavigationController
     let service: APIService
     var onboardingController: OnboardingController?
+    var gameListController: GameListController?
 
     init(_ navController: UINavigationController, _ service: APIService) {
         self.navController = navController
@@ -21,7 +22,8 @@ class MainCoordinator {
 
     func start() {
         presentOnboardingViewController(with: [])
-        service.fetchGenres()
+//        service.fetchGenres()
+        service.mockFetchGenres()
     }
 
     private func presentServiceNotification(_ message: String) {
@@ -74,7 +76,7 @@ class MainCoordinator {
     }
 
     func presentOnboardingViewController(with data: [GenreModel]) {
-        onboardingController = OnboardingController()
+        onboardingController = OnboardingController(service)
         onboardingController?.populateData(data)
         guard let onboardingController else { return }
         DispatchQueue.main.async {
@@ -82,9 +84,22 @@ class MainCoordinator {
             self.navController.setViewControllers([viewController], animated: true)
         }
     }
+
+    func presentGameListViewController(with data: [GameListElementModel]) {
+        gameListController = GameListController(data)
+        guard let gameListController else { return }
+        DispatchQueue.main.async {
+            let viewController = GameListViewController(gameListController)
+            self.navController.setViewControllers([viewController], animated: true)
+        }
+    }
 }
 
 extension MainCoordinator: APIServiceDelegate {
+    func service(didRecieveGameList list: [GameListElementModel]) {
+        presentGameListViewController(with: list)
+    }
+
     func service(didRecieveData data: [GenreModel]) {
         presentOnboardingViewController(with: data)
     }

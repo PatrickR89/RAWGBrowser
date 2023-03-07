@@ -15,6 +15,11 @@ class OnboardingController {
     }
 
     var dataSource: UICollectionViewDiffableDataSource<Int, Int>?
+    let service: APIService
+
+    init(_ service: APIService) {
+        self.service = service
+    }
 
     func createDataSource(for collectionView: UICollectionView) {
         let diffableDataSource = UICollectionViewDiffableDataSource<Int, Int>(collectionView: collectionView) { [weak self] collectionView, indexPath, itemIdentifier in
@@ -26,6 +31,7 @@ class OnboardingController {
             }
             if let genre {
                 cell.setCellData(genre)
+                cell.action = self?.service
             }
 
             return cell

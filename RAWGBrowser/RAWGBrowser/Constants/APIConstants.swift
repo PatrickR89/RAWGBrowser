@@ -8,7 +8,7 @@
 import Foundation
 
 struct APIConstants {
-    static let apiKey = "34ae34ff3e634dd99c5cbb1cb2058c64"
+    static let apiKey = "key=34ae34ff3e634dd99c5cbb1cb2058c64"
     static let baseURL = "https://api.rawg.io/api/"
-    static let genresURL = "genres?key=\(apiKey)&ordering=name&page_size=100"
+    static let genresURL = "genres?\(apiKey)&ordering=name&page_size=100"
 }

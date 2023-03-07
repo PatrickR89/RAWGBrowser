@@ -8,7 +8,13 @@
 import UIKit
 import SDWebImage
 
+protocol GenreDetailViewCellAction: AnyObject {
+    func cellDidRecieveTap(for genreId: Int)
+}
+
 class GenreDetailViewCell: UICollectionViewCell {
+
+    weak var action: GenreDetailViewCellAction?
 
     let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -42,9 +48,12 @@ class GenreDetailViewCell: UICollectionViewCell {
         return button
     }()
 
+    var id = 0
+
     func setCellData(_ viewModel: GenreViewModel) {
         titleLabel.text = viewModel.name
         gameCountLabel.text = "No. of games in genre: \(viewModel.games_count)"
+        self.id = viewModel.id
         if let url = viewModel.image_background {
             imageView.sd_setImage(with: url)
         }
@@ -64,11 +73,12 @@ class GenreDetailViewCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 25
         contentView.clipsToBounds = true
 
+        exploreButton.addTarget(self, action: #selector(didTapExplore), for: .touchUpInside)
+
         contentView.backgroundColor = ColorConstants.lightBackground.withAlphaComponent(0.2)
 
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            gameCountLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             gameCountLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant:  -10),
             titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8),
             gameCountLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8),
@@ -79,7 +89,8 @@ class GenreDetailViewCell: UICollectionViewCell {
             titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
             exploreButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             exploreButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            exploreButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8)
+            exploreButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
+            gameCountLabel.bottomAnchor.constraint(equalTo: exploreButton.topAnchor, constant: -10)
         ])
 
         addGradient()
@@ -92,5 +103,9 @@ class GenreDetailViewCell: UICollectionViewCell {
         gradientLayer.frame.size.height = bounds.size.height * 0.6
         imageView.layer.addSublayer(gradientLayer)
         imageView.layer.superlayer?.addSublayer(gradientLayer)
+    }
+
+    @objc private func didTapExplore() {
+        action?.cellDidRecieveTap(for: id)
     }
 }

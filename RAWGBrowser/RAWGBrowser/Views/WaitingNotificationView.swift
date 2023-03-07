@@ -32,13 +32,8 @@ class WaitingNotificationView: UIView {
         spinner.startAnimating()
 
         NSLayoutConstraint.activate([
-            spinner.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: -20),
+            spinner.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: -100),
             spinner.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
-
-//    func removeSelf() {
-//        spinner.stopAnimating()
-//        self.removeFromSuperview()
-//    }
 }
