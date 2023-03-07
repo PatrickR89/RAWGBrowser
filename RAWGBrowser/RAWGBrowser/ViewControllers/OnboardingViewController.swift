@@ -40,7 +40,7 @@ class OnboardingViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         controller.createDataSource(for: collectionView)
-        collectionView.backgroundColor = .red
+        collectionView.backgroundColor = .clear
         collectionView.delegate = self
 
         NSLayoutConstraint.activate([
@@ -49,6 +49,17 @@ class OnboardingViewController: UIViewController {
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
+
+        setupBackground()
+    }
+
+    private func setupBackground() {
+        let gradient = CAGradientLayer()
+        gradient.colors = [ColorConstants.darkBackground.cgColor, ColorConstants.lightBackground.cgColor]
+        gradient.frame = view.bounds
+        gradient.startPoint = .init(x: 0.5, y: 0.5)
+        gradient.endPoint = .init(x: 0, y: 1)
+        view.layer.insertSublayer(gradient, at: 0)
     }
 }
 
@@ -59,6 +70,18 @@ extension OnboardingViewController: UICollectionViewDelegate {
                                  y: collectionView.frame.size.height / 2 + scrollView.contentOffset.y)
 
             guard let indexPath = collectionView.indexPathForItem(at: center) else { return }
+            print(indexPath)
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
+
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        if scrollView == collectionView {
+            let center = CGPoint(x: collectionView.frame.size.width / 2 + scrollView.contentOffset.x,
+                                 y: collectionView.frame.size.height / 2 + scrollView.contentOffset.y)
+
+            guard let indexPath = collectionView.indexPathForItem(at: center) else { return }
+            print(indexPath)
             collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
     }

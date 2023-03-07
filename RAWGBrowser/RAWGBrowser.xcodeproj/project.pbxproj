@@ -20,6 +20,8 @@
 		CDEA319B29B5FA69005D6FFB /* mockGenres.json in Resources */ = {isa = PBXBuildFile; fileRef = CDEA319A29B5FA69005D6FFB /* mockGenres.json */; };
 		CDEA319D29B5FCAC005D6FFB /* GenreDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA319C29B5FCAC005D6FFB /* GenreDetailViewCell.swift */; };
 		CDEA319F29B61EAC005D6FFB /* mockGenreDetails.json in Resources */ = {isa = PBXBuildFile; fileRef = CDEA319E29B61EAB005D6FFB /* mockGenreDetails.json */; };
+		CDEA31A229B71978005D6FFB /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31A129B71978005D6FFB /* ColorConstants.swift */; };
+		CDEA31A529B71BE9005D6FFB /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = CDEA31A429B71BE9005D6FFB /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,7 @@
 		CDEA319A29B5FA69005D6FFB /* mockGenres.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockGenres.json; sourceTree = "<group>"; };
 		CDEA319C29B5FCAC005D6FFB /* GenreDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreDetailViewCell.swift; sourceTree = "<group>"; };
 		CDEA319E29B61EAB005D6FFB /* mockGenreDetails.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mockGenreDetails.json; sourceTree = "<group>"; };
+		CDEA31A129B71978005D6FFB /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDEA31A529B71BE9005D6FFB /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +74,7 @@
 		CDEA316F29B5DA41005D6FFB /* RAWGBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				CDEA31A029B71968005D6FFB /* Constants */,
 				CDEA319329B5E585005D6FFB /* Controllers */,
 				CDEA318E29B5DE08005D6FFB /* Views */,
 				CDEA318D29B5DE01005D6FFB /* ViewModels */,
@@ -152,6 +157,14 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		CDEA31A029B71968005D6FFB /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				CDEA31A129B71978005D6FFB /* ColorConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,6 +181,9 @@
 			dependencies = (
 			);
 			name = RAWGBrowser;
+			packageProductDependencies = (
+				CDEA31A429B71BE9005D6FFB /* SDWebImage */,
+			);
 			productName = RAWGBrowser;
 			productReference = CDEA316D29B5DA41005D6FFB /* RAWGBrowser.app */;
 			productType = "com.apple.product-type.application";
@@ -196,6 +212,9 @@
 				Base,
 			);
 			mainGroup = CDEA316429B5DA41005D6FFB;
+			packageReferences = (
+				CDEA31A329B71BE9005D6FFB /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = CDEA316E29B5DA41005D6FFB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -227,6 +246,7 @@
 				CDEA317529B5DA41005D6FFB /* OnboardingViewController.swift in Sources */,
 				CDEA317129B5DA41005D6FFB /* AppDelegate.swift in Sources */,
 				CDEA318529B5DB42005D6FFB /* APIService.swift in Sources */,
+				CDEA31A229B71978005D6FFB /* ColorConstants.swift in Sources */,
 				CDEA319D29B5FCAC005D6FFB /* GenreDetailViewCell.swift in Sources */,
 				CDEA319729B5E5E0005D6FFB /* GenreViewModel.swift in Sources */,
 				CDEA319529B5E5C6005D6FFB /* OnboardingController.swift in Sources */,
@@ -446,6 +466,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CDEA31A329B71BE9005D6FFB /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CDEA31A429B71BE9005D6FFB /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDEA31A329B71BE9005D6FFB /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CDEA316529B5DA41005D6FFB /* Project object */;
 }
