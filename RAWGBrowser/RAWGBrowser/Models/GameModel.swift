@@ -9,14 +9,14 @@ import Foundation
 
 struct GameModel: Codable {
     let name: String
-    let released: String
-    let rating: Double
-    let background_image: String
+    let released: String?
+    let rating: Double?
+    let background_image: String?
     let alternative_names: [String]
     let parent_platforms: [ParentPlatform]
     let genres: [NameProperty]
-    let esrb_rating: NameProperty
-    let description_raw: String
+    let esrb_rating: NameProperty?
+    let description_raw: String?
 }
 
 struct NameProperty: Codable {

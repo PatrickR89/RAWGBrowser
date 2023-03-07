@@ -22,8 +22,8 @@ class MainCoordinator {
 
     func start() {
         presentOnboardingViewController(with: [])
-//        service.fetchGenres()
-        service.mockFetchGenres()
+        service.fetchGenres()
+        //        service.mockFetchGenres()
     }
 
     private func presentServiceNotification(_ message: String) {
@@ -113,18 +113,23 @@ extension MainCoordinator: APIServiceDelegate {
     }
 
     func service(didRecieveData data: [GenreModel]) {
-        presentOnboardingViewController(with: data)
+        self.presentOnboardingViewController(with: data)
     }
 
     func service(didRecieveError error: String) {
-        presentServiceNotification(error)
+        DispatchQueue.main.async {
+            self.presentServiceNotification(error)
+        }
+
     }
 
     func service(isWaiting: Bool) {
-        if isWaiting {
-            presentLoadingSpinner()
-        } else {
-            removeSpinner()
+        DispatchQueue.main.async {
+            if isWaiting {
+                self.presentLoadingSpinner()
+            } else {
+                self.removeSpinner()
+            }
         }
     }
 }

@@ -87,7 +87,7 @@ class APIService {
                 } else if response.statusCode >= 400 && response.statusCode < 500 {
                     self?.delegate?.service(didRecieveError: "Error occured in request")
                 } else if response.statusCode >= 500 {
-                    self?.delegate?.service(didRecieveError: "Error occure in response")
+                    self?.delegate?.service(didRecieveError: "Error occured in response")
                 }
                 self?.delegate?.service(isWaiting: false)
                 return
@@ -114,7 +114,7 @@ class APIService {
     }
 
     func fetchGamesForGenre(_ genreId: Int) {
-        let url = URL(string: "\(APIConstants.baseURL)games?genre=\(genreId)&\(APIConstants.apiKey)")!
+        let url = URL(string: "\(APIConstants.baseURL)games?\(APIConstants.apiKey)&genres=\(genreId)")!
 
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -134,12 +134,10 @@ class APIService {
 
             guard let response = response as? HTTPURLResponse else { return }
             guard response.statusCode == 200 else {
-                if response.statusCode == 403 || response.statusCode == 401 {
-                    self?.delegate?.service(didRecieveError: "Error occured while authenticating")
-                } else if response.statusCode >= 400 && response.statusCode < 500 {
+                if response.statusCode >= 400 && response.statusCode < 500 {
                     self?.delegate?.service(didRecieveError: "Error occured in request")
                 } else if response.statusCode >= 500 {
-                    self?.delegate?.service(didRecieveError: "Error occure in response")
+                    self?.delegate?.service(didRecieveError: "Error occured in response")
                 }
                 self?.delegate?.service(isWaiting: false)
                 return
@@ -156,8 +154,61 @@ class APIService {
                 return
             }
 
+            DispatchQueue.main.async {
+                self?.delegate?.service(didRecieveGameList: respData.results)
+            }
 
-            self?.delegate?.service(didRecieveGameList: respData.results)
+            self?.delegate?.service(isWaiting: false)
+        }
+
+        delegate?.service(isWaiting: true)
+        task.resume()
+    }
+
+    func fetchGame(by id: Int) {
+        let url = URL(string: "\(APIConstants.baseURL)games/\(id)?\(APIConstants.apiKey)")!
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = ["Content-Type": "application/json"]
+        request.timeoutInterval = 5
+
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+
+            if let error = error {
+                DispatchQueue.main.async { [weak self] in
+                    self?.delegate?.service(isWaiting: false)
+                    self?.delegate?.service(didRecieveError: error.localizedDescription)
+                }
+
+                return
+            }
+
+            guard let response = response as? HTTPURLResponse else { return }
+            guard response.statusCode == 200 else {
+                 if response.statusCode >= 400 && response.statusCode < 500 {
+                    self?.delegate?.service(didRecieveError: "Error occured in request")
+                } else if response.statusCode >= 500 {
+                    self?.delegate?.service(didRecieveError: "Error occured in response")
+                }
+                self?.delegate?.service(isWaiting: false)
+                return
+            }
+
+            guard let data = data else {
+                self?.delegate?.service(didRecieveError: "Error occured while retrieving data")
+                self?.delegate?.service(isWaiting: false)
+                return
+            }
+            guard let respData = try? JSONDecoder().decode(GameModel.self, from: data) else {
+                self?.delegate?.service(didRecieveError: "Error occured while retrieving data")
+                self?.delegate?.service(isWaiting: false)
+                return
+            }
+
+            let gameViewModel = GameDetailViewModel(respData)
+
+            self?.delegate?.service(didReciveGame: gameViewModel)
             self?.delegate?.service(isWaiting: false)
         }
 
@@ -168,13 +219,14 @@ class APIService {
 
 extension APIService: GenreDetailViewCellAction {
     func cellDidRecieveTap(for genreId: Int) {
-//        fetchGamesForGenre(genreId)
-        mockFetchGamesForGenre(genreId)
+        fetchGamesForGenre(genreId)
+//        mockFetchGamesForGenre(genreId)
     }
 }
 
 extension APIService: GameListViewControllerDelegate {
     func viewController(didTapCellWith id: Int) {
-        mockFetchGame(id)
+//        mockFetchGame(id)
+        fetchGame(by: id)
     }
 }
