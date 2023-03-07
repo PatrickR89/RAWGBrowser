@@ -14,11 +14,18 @@ class OnboardingViewController: UIViewController {
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-        layout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.95, height: UIScreen.main.bounds.height * 0.8)
+        layout.sectionInset = UIEdgeInsets(
+            top: 0, left: 5,
+            bottom: 0, right: 5)
+        layout.itemSize = CGSize(
+            width: UIScreen.main.bounds.width * 0.95,
+            height: UIScreen.main.bounds.height * 0.8)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
 
-        collectionView.register(GenreDetailViewCell.self, forCellWithReuseIdentifier: "Genre cell")
+        collectionView.register(
+            GenreDetailViewCell.self,
+            forCellWithReuseIdentifier: "Genre cell")
+
         return collectionView
     }()
 
@@ -55,7 +62,8 @@ class OnboardingViewController: UIViewController {
 
     private func setupBackground() {
         let gradient = CAGradientLayer()
-        gradient.colors = [ColorConstants.darkBackground.cgColor, ColorConstants.lightBackground.cgColor]
+        gradient.colors = [ColorConstants.darkBackground.cgColor,
+                           ColorConstants.lightBackground.cgColor]
         gradient.frame = view.bounds
         gradient.startPoint = .init(x: 0.5, y: 0.5)
         gradient.endPoint = .init(x: 0, y: 1)
@@ -74,13 +82,15 @@ extension OnboardingViewController: UICollectionViewDelegate {
         }
     }
 
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        if scrollView == collectionView {
-            let center = CGPoint(x: collectionView.frame.size.width / 2 + scrollView.contentOffset.x,
-                                 y: collectionView.frame.size.height / 2 + scrollView.contentOffset.y)
+    func scrollViewWillEndDragging(
+        _ scrollView: UIScrollView, withVelocity velocity: CGPoint,
+        targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+            if scrollView == collectionView {
+                let center = CGPoint(x: collectionView.frame.size.width / 2 + scrollView.contentOffset.x,
+                                     y: collectionView.frame.size.height / 2 + scrollView.contentOffset.y)
 
-            guard let indexPath = collectionView.indexPathForItem(at: center) else { return }
-            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+                guard let indexPath = collectionView.indexPathForItem(at: center) else { return }
+                collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+            }
         }
-    }
 }

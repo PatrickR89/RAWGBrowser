@@ -69,7 +69,8 @@ class GameListViewController: UIViewController {
 
     private func setupBackground() {
         let gradient = CAGradientLayer()
-        gradient.colors = [ColorConstants.darkBackground.cgColor, ColorConstants.lightBackground.cgColor]
+        gradient.colors = [ColorConstants.darkBackground.cgColor,
+                           ColorConstants.lightBackground.cgColor]
         gradient.frame = view.bounds
         gradient.startPoint = .init(x: 0.6, y: 0)
         gradient.endPoint = .init(x: 1, y: 0)
@@ -78,16 +79,22 @@ class GameListViewController: UIViewController {
 }
 
 extension GameListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        guard let itemIdentifier = controller.diffableDataSource?.itemIdentifier(for: indexPath) else { return }
-        delegate?.viewController(didTapCellWith: itemIdentifier)
-    }
-
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
-            guard let next = controller.nextPage else { return }
-            delegate?.viewController(didRequestNextPage: next)
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath) {
+            tableView.deselectRow(at: indexPath, animated: true)
+            guard let itemIdentifier = controller.diffableDataSource?.itemIdentifier(for: indexPath) else {
+                return
+            }
+            delegate?.viewController(didTapCellWith: itemIdentifier)
         }
-    }
+
+    func tableView(
+        _ tableView: UITableView, willDisplay cell: UITableViewCell,
+        forRowAt indexPath: IndexPath) {
+            if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
+                guard let next = controller.nextPage else { return }
+                delegate?.viewController(didRequestNextPage: next)
+            }
+        }
 }

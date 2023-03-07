@@ -13,11 +13,8 @@ class GameViewCell: UITableViewCell {
     var id = 0
 
     let nameLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = ColorConstants.orangeAccent
-        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        label.numberOfLines = 0
-        label.layer.zPosition = 100
+        let label = UILabel().createNameLabel()
+        
         return label
     }()
 
@@ -36,11 +33,7 @@ class GameViewCell: UITableViewCell {
     }()
 
     let ratingLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 10)
-        label.textColor = ColorConstants.textColor
-        label.frame.size.height = 10
-        label.frame.size.width = 30
+        let label = UILabel().createRatingLabel()
         return label
     }()
 
@@ -66,37 +59,59 @@ class GameViewCell: UITableViewCell {
     func setupUI() {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(ratingLabel)
-        contentView.addSubview(posterImageView)
-        contentView.addSubview(imageViewCover)
+        addPosterImageViewSubview()
+        addNameLabelSubview()
+        addImageShaderSubview()
+    }
 
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        ratingLabel.translatesAutoresizingMaskIntoConstraints = false
+
+}
+
+private extension GameViewCell {
+    func addPosterImageViewSubview() {
+        contentView.addSubview(posterImageView)
         posterImageView.translatesAutoresizingMaskIntoConstraints = false
-        imageViewCover.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             posterImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             posterImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             posterImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
-            posterImageView.heightAnchor.constraint(equalToConstant: 100),
+            posterImageView.heightAnchor.constraint(equalToConstant: 100)
+        ])
+    }
+    func addNameLabelSubview() {
+        contentView.addSubview(nameLabel)
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: posterImageView.trailingAnchor, constant: -15),
             nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             nameLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
-            nameLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor),
+            nameLabel.heightAnchor.constraint(equalTo: contentView.heightAnchor)
+        ])
+    }
+
+    func addRatingLabelSubview() {
+        contentView.addSubview(ratingLabel)
+        ratingLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
             ratingLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5),
-            ratingLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+            ratingLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5)
+        ])
+    }
+
+    func addImageShaderSubview() {
+        contentView.addSubview(imageViewCover)
+        imageViewCover.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
             imageViewCover.leadingAnchor.constraint(equalTo: posterImageView.leadingAnchor),
             imageViewCover.trailingAnchor.constraint(equalTo: posterImageView.trailingAnchor),
             imageViewCover.topAnchor.constraint(equalTo: posterImageView.topAnchor),
             imageViewCover.bottomAnchor.constraint(equalTo: posterImageView.bottomAnchor)
         ])
-
-        coverImage()
-    }
-
-    func coverImage() {
+        
         let gradient = CAGradientLayer()
         gradient.colors = [ColorConstants.lightBackground.withAlphaComponent(0).cgColor, ColorConstants.darkBackground.cgColor]
         gradient.frame.size.height = 100

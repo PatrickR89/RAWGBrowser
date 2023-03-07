@@ -272,7 +272,6 @@ class APIService {
 extension APIService: GenreDetailViewCellAction {
     func cellDidRecieveTap(for genreId: Int) {
         fetchGamesForGenre(genreId)
-//        mockFetchGamesForGenre(genreId)
     }
 }
 
@@ -282,7 +281,6 @@ extension APIService: GameListViewControllerDelegate {
     }
 
     func viewController(didTapCellWith id: Int) {
-//        mockFetchGame(id)
         fetchGame(by: id)
     }
 }

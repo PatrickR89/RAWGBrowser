@@ -10,12 +10,13 @@ import Foundation
 struct GenreViewModel {
     let id: Int
     let name: String
-    let games_count: Int
-    let image_background : URL?
-    let games: [GameExample]
-}
+    let gamesCount: Int
+    let backgroundImage : URL?
 
-struct GameExample {
-    let id: Int
-    let name: String
+    init(_ model: GenreModel) {
+        id = model.id
+        name = model.name
+        gamesCount = model.games_count
+        backgroundImage = URL(string: model.image_background)
+    }
 }

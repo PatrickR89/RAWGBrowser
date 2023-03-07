@@ -22,8 +22,12 @@ class GameDetailsController {
     var dataSource: UITableViewDiffableDataSource<Int, String>?
 
     func createDataSource(for tableView: UITableView) {
-        let dataSource = UITableViewDiffableDataSource<Int, String>(tableView: tableView) { [weak self] tableView, indexPath, itemIdentifier in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "Detail cell", for: indexPath) as? GameDetailViewCell else {
+        let dataSource = UITableViewDiffableDataSource<
+            Int, String
+        >(tableView: tableView) { [weak self] tableView, indexPath, itemIdentifier in
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: "Detail cell",
+                for: indexPath) as? GameDetailViewCell else {
                 fatalError("Cell not found")
             }
             if let data = self?.details[itemIdentifier, default: []] {

@@ -16,13 +16,7 @@ class DescriptionView: UIView {
     weak var delegate: DescriptionViewDelegate?
 
     let closeButton: UIButton = {
-        let button = UIButton()
-        let buttonImage = UIImage(systemName: "xmark.circle", withConfiguration: UIImage.SymbolConfiguration(font: UIFont.systemFont(ofSize: 25)))
-        button.backgroundColor = ColorConstants.darkBackground.withAlphaComponent(0.8)
-        button.tintColor = ColorConstants.orangeAccent
-        button.setImage(buttonImage, for: .normal)
-        button.layer.cornerRadius = 15
-        button.frame.size = CGSize(width: 30, height: 30)
+        let button = UIButton().createCircularButton("xmark.circle")
         return button
     }()
 

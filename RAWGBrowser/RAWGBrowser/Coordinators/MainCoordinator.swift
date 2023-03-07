@@ -23,13 +23,11 @@ class MainCoordinator {
     func start() {
         presentOnboardingViewController(with: [])
         service.fetchGenres()
-        //        service.mockFetchGenres()
     }
 
     private func presentServiceNotification(_ message: String) {
 
         var yPosition = navController.view.frame.height / 2
-
         if let height = navController.viewControllers.last?.view.frame.height {
             yPosition -= height / 2
         }
@@ -42,14 +40,13 @@ class MainCoordinator {
 
         DispatchQueue.main.async {
             let serviceNotification = ServiceNotificationView(frame: frame, message: message)
-
             self.navController.viewControllers.last?.view.addSubview(serviceNotification)
         }
     }
 
     private func presentLoadingSpinner() {
-        var yPosition = navController.view.frame.height / 2
 
+        var yPosition = navController.view.frame.height / 2
         if let height = navController.viewControllers.last?.view.frame.height {
             yPosition -= height / 2
         }
@@ -62,7 +59,6 @@ class MainCoordinator {
 
         DispatchQueue.main.async {
             let serviceNotification = WaitingNotificationView(frame: frame)
-
             self.navController.view.addSubview(serviceNotification)
         }
     }

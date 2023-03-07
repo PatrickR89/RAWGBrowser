@@ -38,13 +38,7 @@ class GenreDetailViewCell: UICollectionViewCell {
     }()
 
     let exploreButton: UIButton = {
-        let button = UIButton()
-        button.layer.cornerRadius = 20
-        button.frame.size.height = 40
-        button.backgroundColor = ColorConstants.greenAccent
-        button.setTitleColor(ColorConstants.darkBackground, for: .normal)
-        button.setTitle("Explore", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        let button = UIButton().createExploreButton()
         return button
     }()
 
@@ -52,60 +46,75 @@ class GenreDetailViewCell: UICollectionViewCell {
 
     func setCellData(_ viewModel: GenreViewModel) {
         titleLabel.text = viewModel.name
-        gameCountLabel.text = "No. of games in genre: \(viewModel.games_count)"
+        gameCountLabel.text = "No. of games in genre: \(viewModel.gamesCount)"
         self.id = viewModel.id
-        if let url = viewModel.image_background {
+        if let url = viewModel.backgroundImage {
             imageView.sd_setImage(with: url)
         }
         setupUI()
     }
+}
+
+private extension GenreDetailViewCell {
 
     func setupUI() {
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(gameCountLabel)
-        contentView.addSubview(imageView)
-        contentView.addSubview(exploreButton)
+        addImageViewSubview()
+        addTitleLabelSubview()
+        addExploreButtonSubview()
+        addGameCountLabelSubview()
 
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        gameCountLabel.translatesAutoresizingMaskIntoConstraints = false
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        exploreButton.translatesAutoresizingMaskIntoConstraints = false
         contentView.layer.cornerRadius = 25
         contentView.clipsToBounds = true
-
-        exploreButton.addTarget(self, action: #selector(didTapExplore), for: .touchUpInside)
-
         contentView.backgroundColor = ColorConstants.lightBackground.withAlphaComponent(0.2)
+    }
+
+    func addImageViewSubview() {
+        contentView.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
-            gameCountLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant:  -10),
-            titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8),
-            gameCountLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8),
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6),
-            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10),
+            imageView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.6)
+        ])
+    }
+
+    func addTitleLabelSubview() {
+        contentView.addSubview(titleLabel)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
+            titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8),
+            titleLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 10)
+        ])
+    }
+
+    func addExploreButtonSubview() {
+        contentView.addSubview(exploreButton)
+        exploreButton.translatesAutoresizingMaskIntoConstraints = false
+        exploreButton.addTarget(self, action: #selector(didTapExplore), for: .touchUpInside)
+
+        NSLayoutConstraint.activate([
             exploreButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             exploreButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            exploreButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8),
+            exploreButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.8)
+        ])
+    }
+
+    func addGameCountLabelSubview() {
+        contentView.addSubview(gameCountLabel)
+        gameCountLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            gameCountLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant:  -10),
+            gameCountLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8),
             gameCountLabel.bottomAnchor.constraint(equalTo: exploreButton.topAnchor, constant: -10)
         ])
-
-        addGradient()
     }
 
-    private func addGradient() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [ColorConstants.lightBackground.withAlphaComponent(0).cgColor, ColorConstants.darkBackground.withAlphaComponent(0.8).cgColor]
-        gradientLayer.frame = bounds
-        gradientLayer.frame.size.height = bounds.size.height * 0.6
-        imageView.layer.addSublayer(gradientLayer)
-        imageView.layer.superlayer?.addSublayer(gradientLayer)
-    }
-
-    @objc private func didTapExplore() {
+    @objc func didTapExplore() {
         action?.cellDidRecieveTap(for: id)
     }
 }

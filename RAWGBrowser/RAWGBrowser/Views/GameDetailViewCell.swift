@@ -50,11 +50,12 @@ class GameDetailViewCell: UITableViewCell {
     func setupUI() {
         isUserInteractionEnabled = false
         backgroundColor = .clear
-        contentView.backgroundColor = .clear
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(stackView)
         contentView.layer.borderColor = ColorConstants.lightBackground.cgColor
         contentView.layer.borderWidth = 0.5
+        contentView.backgroundColor = .clear
+        
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(stackView)
 
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false

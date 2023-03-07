@@ -20,21 +20,4 @@ struct GenreModel: Codable {
     let slug: String
     let games_count: Int
     let image_background : String
-    let games: [GenreGameExampleModel]
-}
-
-struct DetailGenreModel: Codable {
-    let id: Int
-    let name: String
-    let slug: String
-    let games_count: Int
-    let image_background: String
-    let description: String
-}
-
-struct GenreGameExampleModel: Codable {
-    let id: Int
-    let slug: String
-    let name: String
-    let added: Int
 }

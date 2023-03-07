@@ -22,8 +22,12 @@ class OnboardingController {
     }
 
     func createDataSource(for collectionView: UICollectionView) {
-        let diffableDataSource = UICollectionViewDiffableDataSource<Int, Int>(collectionView: collectionView) { [weak self] collectionView, indexPath, itemIdentifier in
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Genre cell", for: indexPath) as? GenreDetailViewCell else {
+        let diffableDataSource = UICollectionViewDiffableDataSource<
+            Int, Int
+        >(collectionView: collectionView) { [weak self] collectionView, indexPath, itemIdentifier in
+            guard let cell = collectionView.dequeueReusableCell(
+                withReuseIdentifier: "Genre cell",
+                for: indexPath) as? GenreDetailViewCell else {
                 fatalError("Cell not found")
             }
             let genre = self?.genres.first { viewModel in
@@ -33,7 +37,6 @@ class OnboardingController {
                 cell.setCellData(genre)
                 cell.action = self?.service
             }
-
             return cell
         }
         
@@ -43,7 +46,6 @@ class OnboardingController {
 
     func updateSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Int, Int>()
-
         snapshot.appendSections([0])
 
         for genre in genres {
@@ -56,11 +58,7 @@ class OnboardingController {
     func populateData(_ data: [GenreModel]) {
 
         let updatedData = data.map { model in
-            let imageUrl = URL(string: model.image_background)
-            let games = model.games.map { gameModel in
-                return GameExample(id: gameModel.id, name: gameModel.name)
-            }
-            let viewModel = GenreViewModel(id: model.id, name: model.name, games_count: model.games_count, image_background: imageUrl, games: games)
+            let viewModel = GenreViewModel(model)
             return viewModel
         }
 

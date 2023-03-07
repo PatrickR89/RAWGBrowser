@@ -10,18 +10,7 @@ import UIKit
 class ServiceNotificationView: UIView {
 
     let notificationLabel: UILabel = {
-        let label = UILabel()
-
-        label.backgroundColor = ColorConstants.darkBackground
-        label.layer.cornerRadius = 10
-        label.layer.borderColor = ColorConstants.orangeAccent.withAlphaComponent(0.7).cgColor
-        label.layer.borderWidth = 2
-        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
-        label.clipsToBounds = true
-        label.textAlignment = .center
-        label.textColor = ColorConstants.orangeAccent
-        label.numberOfLines = 0
-
+        let label = UILabel().createNotificationLabel()
         return label
     }()
 

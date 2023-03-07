@@ -39,14 +39,8 @@ class HeroImageView: UIView {
     }()
 
     let infoButton: UIButton = {
-        let button = UIButton()
-        let buttonImage = UIImage(systemName: "info.circle", withConfiguration: UIImage.SymbolConfiguration(font: UIFont.systemFont(ofSize: 30)))
-        button.setImage(buttonImage, for: .normal)
-        button.tintColor = ColorConstants.orangeAccent
-        button.backgroundColor = ColorConstants.darkBackground.withAlphaComponent(0.8)
+        let button = UIButton().createCircularButton("info.circle")
         button.layer.zPosition = 100
-        button.layer.cornerRadius = 15
-        button.frame.size = CGSize(width: 30, height: 30)
         return button
     }()
 

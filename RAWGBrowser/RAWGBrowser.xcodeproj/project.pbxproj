@@ -39,6 +39,8 @@
 		CDEA31C329B768C2005D6FFB /* GameDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31C229B768C2005D6FFB /* GameDetailViewCell.swift */; };
 		CDEA31C529B76CC7005D6FFB /* HeroImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31C429B76CC7005D6FFB /* HeroImageView.swift */; };
 		CDEA31CA29B7D0D6005D6FFB /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31C929B7D0D6005D6FFB /* DescriptionView.swift */; };
+		CDEA31CC29B7E4EA005D6FFB /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31CB29B7E4EA005D6FFB /* UIButton+Extension.swift */; };
+		CDEA31CE29B7EAEE005D6FFB /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31CD29B7EAEE005D6FFB /* UILabel+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +77,8 @@
 		CDEA31C229B768C2005D6FFB /* GameDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewCell.swift; sourceTree = "<group>"; };
 		CDEA31C429B76CC7005D6FFB /* HeroImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroImageView.swift; sourceTree = "<group>"; };
 		CDEA31C929B7D0D6005D6FFB /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
+		CDEA31CB29B7E4EA005D6FFB /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		CDEA31CD29B7EAEE005D6FFB /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +224,8 @@
 		CDEA31C629B7C12E005D6FFB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				CDEA31CB29B7E4EA005D6FFB /* UIButton+Extension.swift */,
+				CDEA31CD29B7EAEE005D6FFB /* UILabel+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -319,7 +325,9 @@
 				CDEA319D29B5FCAC005D6FFB /* GenreDetailViewCell.swift in Sources */,
 				CDEA31B129B741BA005D6FFB /* GameListViewController.swift in Sources */,
 				CDEA31CA29B7D0D6005D6FFB /* DescriptionView.swift in Sources */,
+				CDEA31CC29B7E4EA005D6FFB /* UIButton+Extension.swift in Sources */,
 				CDEA319729B5E5E0005D6FFB /* GenreViewModel.swift in Sources */,
+				CDEA31CE29B7EAEE005D6FFB /* UILabel+Extension.swift in Sources */,
 				CDEA31BB29B7588E005D6FFB /* GameModel.swift in Sources */,
 				CDEA31B529B7421E005D6FFB /* GameListElementViewModel.swift in Sources */,
 				CDEA31AB29B72A19005D6FFB /* WaitingNotificationView.swift in Sources */,

@@ -33,9 +33,7 @@ class GameDetailViewController: UIViewController {
         controller.createDataSource(for: tableView)
         controller.populateData(viewModel.tableContent)
         heroHeader.setupUI(in: view.frame, for: viewModel.backgroundImage, with: viewModel.name)
-        heroHeader.delegate = self
         descriptionView.populateData(viewModel.description)
-        descriptionView.delegate = self
     }
 
     required init?(coder: NSCoder) {
@@ -48,34 +46,9 @@ class GameDetailViewController: UIViewController {
     }
 
     func setupUI() {
-        view.addSubview(heroHeader)
-        view.addSubview(tableView)
-        view.addSubview(descriptionView)
-
-        heroHeader.translatesAutoresizingMaskIntoConstraints = false
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        descriptionView.translatesAutoresizingMaskIntoConstraints = false
-
-        tableView.backgroundColor = .clear
-
-        NSLayoutConstraint.activate([
-            heroHeader.topAnchor.constraint(equalTo: view.topAnchor),
-            heroHeader.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            heroHeader.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            heroHeader.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5),
-            tableView.topAnchor.constraint(equalTo: heroHeader.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-
-        NSLayoutConstraint.activate([
-            descriptionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            descriptionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            descriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            descriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
-        ])
-
+        addHeroHeaderSubview()
+        addTableViewSubview()
+        addDescriptionViewSubview()
         setupBackground()
     }
 
@@ -100,5 +73,46 @@ extension GameDetailViewController: DescriptionViewDelegate {
     func viewDidRequestClose() {
         descriptionView.isHidden = true
         view.layoutIfNeeded()
+    }
+}
+
+private extension GameDetailViewController {
+    func addHeroHeaderSubview() {
+        view.addSubview(heroHeader)
+        heroHeader.delegate = self
+        heroHeader.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            heroHeader.topAnchor.constraint(equalTo: view.topAnchor),
+            heroHeader.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            heroHeader.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            heroHeader.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
+        ])
+    }
+
+    func addTableViewSubview() {
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .clear
+
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: heroHeader.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+    }
+
+    func addDescriptionViewSubview() {
+        view.addSubview(descriptionView)
+        descriptionView.delegate = self
+        descriptionView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            descriptionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            descriptionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            descriptionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            descriptionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+        ])
     }
 }
