@@ -85,7 +85,7 @@ class MainCoordinator {
         }
     }
 
-    func presentGameListViewController(with data: [GameListElementModel]) {
+    func presentGameListViewController(with data: GameListResponseModel) {
         gameListController = GameListController(data)
         guard let gameListController else { return }
         DispatchQueue.main.async {
@@ -104,15 +104,19 @@ class MainCoordinator {
 }
 
 extension MainCoordinator: APIServiceDelegate {
-    func service(didReciveGame detail: GameDetailViewModel) {
-        presentGameDetailsViewController(with: detail)
+    func service(didReciveGame data: GameDetailViewModel) {
+        presentGameDetailsViewController(with: data)
     }
 
-    func service(didRecieveGameList list: [GameListElementModel]) {
-        presentGameListViewController(with: list)
+    func service(didRecieveGameList data: GameListResponseModel) {
+        presentGameListViewController(with: data)
     }
 
-    func service(didRecieveData data: [GenreModel]) {
+    func service(didUpdateGamesList data: GameListResponseModel) {
+        gameListController?.populateData(data)
+    }
+
+    func service(didRecieveGenres data: [GenreModel]) {
         self.presentOnboardingViewController(with: data)
     }
 

@@ -56,8 +56,10 @@ class GameViewCell: UITableViewCell {
     func setupData(_ viewModel: GameListElementViewModel) {
         nameLabel.text = viewModel.name
         ratingLabel.text = "Rating: \(viewModel.rating)"
+
         if let url = viewModel.background_image {
-            posterImageView.sd_setImage(with: url)
+            let transformer = SDImageResizingTransformer(size: CGSize(width: 300, height: 200), scaleMode: .aspectFill)
+            posterImageView.sd_setImage(with: url, placeholderImage: nil, context: [.imageTransformer: transformer])
         }
     }
 

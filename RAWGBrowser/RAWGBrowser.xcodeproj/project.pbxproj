@@ -38,6 +38,7 @@
 		CDEA31C129B767FC005D6FFB /* GameDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31C029B767FC005D6FFB /* GameDetailsController.swift */; };
 		CDEA31C329B768C2005D6FFB /* GameDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31C229B768C2005D6FFB /* GameDetailViewCell.swift */; };
 		CDEA31C529B76CC7005D6FFB /* HeroImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31C429B76CC7005D6FFB /* HeroImageView.swift */; };
+		CDEA31CA29B7D0D6005D6FFB /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA31C929B7D0D6005D6FFB /* DescriptionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		CDEA31C029B767FC005D6FFB /* GameDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailsController.swift; sourceTree = "<group>"; };
 		CDEA31C229B768C2005D6FFB /* GameDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameDetailViewCell.swift; sourceTree = "<group>"; };
 		CDEA31C429B76CC7005D6FFB /* HeroImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroImageView.swift; sourceTree = "<group>"; };
+		CDEA31C929B7D0D6005D6FFB /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		CDEA316F29B5DA41005D6FFB /* RAWGBrowser */ = {
 			isa = PBXGroup;
 			children = (
+				CDEA31C629B7C12E005D6FFB /* Extensions */,
 				CDEA31A029B71968005D6FFB /* Constants */,
 				CDEA319329B5E585005D6FFB /* Controllers */,
 				CDEA318E29B5DE08005D6FFB /* Views */,
@@ -190,6 +193,7 @@
 				CDEA31B629B74329005D6FFB /* GameViewCell.swift */,
 				CDEA31C229B768C2005D6FFB /* GameDetailViewCell.swift */,
 				CDEA31C429B76CC7005D6FFB /* HeroImageView.swift */,
+				CDEA31C929B7D0D6005D6FFB /* DescriptionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,6 +215,13 @@
 				CDEA31A629B723DC005D6FFB /* APIConstants.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		CDEA31C629B7C12E005D6FFB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,6 +318,7 @@
 				CDEA31A229B71978005D6FFB /* ColorConstants.swift in Sources */,
 				CDEA319D29B5FCAC005D6FFB /* GenreDetailViewCell.swift in Sources */,
 				CDEA31B129B741BA005D6FFB /* GameListViewController.swift in Sources */,
+				CDEA31CA29B7D0D6005D6FFB /* DescriptionView.swift in Sources */,
 				CDEA319729B5E5E0005D6FFB /* GenreViewModel.swift in Sources */,
 				CDEA31BB29B7588E005D6FFB /* GameModel.swift in Sources */,
 				CDEA31B529B7421E005D6FFB /* GameListElementViewModel.swift in Sources */,

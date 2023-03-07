@@ -8,15 +8,18 @@
 import UIKit
 
 class GameListController {
-
+    var previousPage: String?
+    var nextPage: String?
     var gameList: [GameListElementViewModel] = [] {
         didSet {
             updateSnapshot()
         }
     }
 
-    init(_ data: [GameListElementModel]) {
-        gameList = data.map { GameListElementViewModel($0) }
+    init(_ data: GameListResponseModel) {
+        previousPage = data.previous
+        nextPage = data.next
+        data.results.forEach { gameList.append(GameListElementViewModel($0)) }
     }
 
     var diffableDataSource: UITableViewDiffableDataSource<Int, Int>?
@@ -44,5 +47,18 @@ class GameListController {
         snapshot.appendItems(gameList.map { $0.id}, toSection: 0)
 
         diffableDataSource?.apply(snapshot)
+    }
+
+    func populateData(_ data: GameListResponseModel) {
+        previousPage = data.previous
+        nextPage = data.next
+
+        data.results.forEach { model in
+            if !gameList.contains(where: { viewModel in
+                viewModel.id == model.id
+            }) {
+                gameList.append(GameListElementViewModel(model))
+            }
+        }
     }
 }

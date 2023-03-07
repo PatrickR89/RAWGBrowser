@@ -9,6 +9,7 @@ import UIKit
 
 protocol GameListViewControllerDelegate: AnyObject {
     func viewController(didTapCellWith id: Int)
+    func viewController(didRequestNextPage pageUrl: String)
 }
 
 class GameListViewController: UIViewController {
@@ -34,6 +35,7 @@ class GameListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        customizeNavBar()
     }
 
     func setupUI() {
@@ -56,6 +58,15 @@ class GameListViewController: UIViewController {
         setupBackground()
     }
 
+    private func customizeNavBar() {
+        let customNavigationBarAppearance = UINavigationBarAppearance()
+        customNavigationBarAppearance.configureWithOpaqueBackground()
+        customNavigationBarAppearance.backgroundColor = ColorConstants.darkBackground.withAlphaComponent(0.7)
+        navigationController?.navigationBar.standardAppearance = customNavigationBarAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = customNavigationBarAppearance
+        navigationController?.navigationBar.tintColor = ColorConstants.orangeAccent
+    }
+
     private func setupBackground() {
         let gradient = CAGradientLayer()
         gradient.colors = [ColorConstants.darkBackground.cgColor, ColorConstants.lightBackground.cgColor]
@@ -71,5 +82,12 @@ extension GameListViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let itemIdentifier = controller.diffableDataSource?.itemIdentifier(for: indexPath) else { return }
         delegate?.viewController(didTapCellWith: itemIdentifier)
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == tableView.numberOfRows(inSection: 0) - 1 {
+            guard let next = controller.nextPage else { return }
+            delegate?.viewController(didRequestNextPage: next)
+        }
     }
 }
