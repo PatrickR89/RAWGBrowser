@@ -15,6 +15,7 @@ class MainCoordinator {
     let databaseService: DatabaseService
     var onboardingController: OnboardingController?
     var gameListController: GameListController?
+    var gameDetailsController: GameDetailsController?
 
     init(_ navController: UINavigationController, _ networkService: APIService, _ databaseService: DatabaseService) {
         self.navController = navController
@@ -114,8 +115,11 @@ class MainCoordinator {
     /// Method to present screen with detailed information about selected game
     /// - Parameter data: view model converted from `HTTPResponse`
     func presentGameDetailsViewController(with data: GameDetailViewModel) {
+        gameDetailsController = GameDetailsController()
+        gameDetailsController?.populateData(data.tableContent)
+        guard let gameDetailsController else {return}
         DispatchQueue.main.async {
-            let viewController = GameDetailViewController(data)
+            let viewController = GameDetailViewController(data, gameDetailsController)
             self.navController.pushViewController(viewController, animated: true)
         }
     }
@@ -165,7 +169,7 @@ extension MainCoordinator: APIServiceDelegate {
     }
 
     /// Delegate method notifying about error from ``APIService``, forwarding error message to `presentServiceNotification`
-    /// - Parameter error: <#error description#>
+    /// - Parameter error: error message
     func service(didRecieveError error: String) {
         DispatchQueue.main.async {
             self.presentServiceNotification(error)

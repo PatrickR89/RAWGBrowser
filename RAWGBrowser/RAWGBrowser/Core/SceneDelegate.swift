@@ -20,7 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             let navigationController = NavigationController()
             navigationController.setBackGround()
-            mainCoordinator = MainCoordinator(navigationController, APIService(), DatabaseService())
+            let databaseService = DatabaseService()
+            mainCoordinator = MainCoordinator(navigationController, APIService(), databaseService)
             window = UIWindow(frame: windowScene.coordinateSpace.bounds)
             window?.windowScene = windowScene
             window?.rootViewController = navigationController

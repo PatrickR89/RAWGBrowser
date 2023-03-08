@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 /// `Controller class` containing methods required for ``GameDetailViewController``
 class GameDetailsController {
-    var keys: [String] = [] {
+    @Published private(set) var keys: [String] = [] {
         didSet {
             updateSnapshot()
         }

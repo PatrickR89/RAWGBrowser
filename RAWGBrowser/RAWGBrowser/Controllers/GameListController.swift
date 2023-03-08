@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import Combine
 
 /// `Controller class` containing methods required for ``GameListViewController``
 /// NOTE: ``previousPage`` is currently not use - remains for future updates, when ``gameList`` length will be limited, to enable loading previous pages from `RAWG API`
 class GameListController {
     var previousPage: String?
     var nextPage: String?
-    var gameList: [GameListElementViewModel] = [] {
+    @Published private(set) var gameList: [GameListElementViewModel] = [] {
         didSet {
             updateSnapshot()
         }

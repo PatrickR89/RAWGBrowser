@@ -6,10 +6,11 @@
 //
 
 import UIKit
+import Combine
 
 /// `Controller class` containing methods for ``OnboardingViewController``
 class OnboardingController {
-    var genres: [GenreViewModel] = [] {
+    @Published private(set) var genres: [GenreViewModel] = [] {
         didSet {
             updateSnapshot()
         }

@@ -51,7 +51,29 @@
 		CDEA324929B88A1B005D6FFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDEA324829B88A1B005D6FFB /* Assets.xcassets */; };
 		CDEA324B29B88A8F005D6FFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDEA324A29B88A8F005D6FFB /* LaunchScreen.storyboard */; };
 		CDEA324F29B88BF6005D6FFB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDEA324E29B88BF6005D6FFB /* GoogleService-Info.plist */; };
+		CDEA325729B8A72D005D6FFB /* RAWGBrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA325629B8A72D005D6FFB /* RAWGBrowserTests.swift */; };
+		CDEA325E29B8A745005D6FFB /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA325D29B8A745005D6FFB /* MockAPIService.swift */; };
+		CDEA326029B8A751005D6FFB /* MockDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA325F29B8A751005D6FFB /* MockDatabaseService.swift */; };
+		CDEA326429B8AB34005D6FFB /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = CDEA326329B8AB34005D6FFB /* SDWebImage */; };
+		CDEA326629B8AB6F005D6FFB /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = CDEA326529B8AB6F005D6FFB /* FirebaseAnalytics */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CDEA327029B8AB6F005D6FFB /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = CDEA326F29B8AB6F005D6FFB /* FirebaseDatabase */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CDEA327229B8AB6F005D6FFB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CDEA327129B8AB6F005D6FFB /* FirebaseFirestore */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CDEA327429B8AB6F005D6FFB /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CDEA327329B8AB6F005D6FFB /* FirebaseFirestoreSwift */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CDEA327629B8AB6F005D6FFB /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = CDEA327529B8AB6F005D6FFB /* FirebaseFunctions */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CDEA327829B8AB6F005D6FFB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CDEA327729B8AB6F005D6FFB /* FirebaseStorage */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CDEA327A29B8BD2A005D6FFB /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CDEA327929B8BD2A005D6FFB /* FirebaseDatabaseSwift */; };
+		CDEA327C29B8C3C1005D6FFB /* RAWGViewModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA327B29B8C3C1005D6FFB /* RAWGViewModelsTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CDEA325829B8A72D005D6FFB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDEA316529B5DA41005D6FFB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CDEA316C29B5DA41005D6FFB;
+			remoteInfo = RAWGBrowser;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		CDEA316D29B5DA41005D6FFB /* RAWGBrowser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RAWGBrowser.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +114,11 @@
 		CDEA324829B88A1B005D6FFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CDEA324A29B88A8F005D6FFB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CDEA324E29B88BF6005D6FFB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CDEA325429B8A72D005D6FFB /* RAWGBrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RAWGBrowserTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDEA325629B8A72D005D6FFB /* RAWGBrowserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAWGBrowserTests.swift; sourceTree = "<group>"; };
+		CDEA325D29B8A745005D6FFB /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
+		CDEA325F29B8A751005D6FFB /* MockDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDatabaseService.swift; sourceTree = "<group>"; };
+		CDEA327B29B8C3C1005D6FFB /* RAWGViewModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAWGViewModelsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +137,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CDEA325129B8A72D005D6FFB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDEA327A29B8BD2A005D6FFB /* FirebaseDatabaseSwift in Frameworks */,
+				CDEA326629B8AB6F005D6FFB /* FirebaseAnalytics in Frameworks */,
+				CDEA327229B8AB6F005D6FFB /* FirebaseFirestore in Frameworks */,
+				CDEA327029B8AB6F005D6FFB /* FirebaseDatabase in Frameworks */,
+				CDEA327629B8AB6F005D6FFB /* FirebaseFunctions in Frameworks */,
+				CDEA327829B8AB6F005D6FFB /* FirebaseStorage in Frameworks */,
+				CDEA326429B8AB34005D6FFB /* SDWebImage in Frameworks */,
+				CDEA327429B8AB6F005D6FFB /* FirebaseFirestoreSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -117,7 +159,9 @@
 			isa = PBXGroup;
 			children = (
 				CDEA316F29B5DA41005D6FFB /* RAWGBrowser */,
+				CDEA325529B8A72D005D6FFB /* RAWGBrowserTests */,
 				CDEA316E29B5DA41005D6FFB /* Products */,
+				CDEA326229B8AB34005D6FFB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				CDEA316D29B5DA41005D6FFB /* RAWGBrowser.app */,
+				CDEA325429B8A72D005D6FFB /* RAWGBrowserTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -144,10 +189,6 @@
 				CDEA318829B5DD03005D6FFB /* Core */,
 				CDEA317E29B5DA43005D6FFB /* Info.plist */,
 				CDEA324E29B88BF6005D6FFB /* GoogleService-Info.plist */,
-				CDEA319A29B5FA69005D6FFB /* mockGenres.json */,
-				CDEA31B829B7585D005D6FFB /* mockGame.json */,
-				CDEA319E29B61EAB005D6FFB /* mockGenreDetails.json */,
-				CDEA31AC29B73D96005D6FFB /* mockGenreList.json */,
 			);
 			path = RAWGBrowser;
 			sourceTree = "<group>";
@@ -253,6 +294,28 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		CDEA325529B8A72D005D6FFB /* RAWGBrowserTests */ = {
+			isa = PBXGroup;
+			children = (
+				CDEA319A29B5FA69005D6FFB /* mockGenres.json */,
+				CDEA31B829B7585D005D6FFB /* mockGame.json */,
+				CDEA319E29B61EAB005D6FFB /* mockGenreDetails.json */,
+				CDEA31AC29B73D96005D6FFB /* mockGenreList.json */,
+				CDEA325629B8A72D005D6FFB /* RAWGBrowserTests.swift */,
+				CDEA327B29B8C3C1005D6FFB /* RAWGViewModelsTests.swift */,
+				CDEA325D29B8A745005D6FFB /* MockAPIService.swift */,
+				CDEA325F29B8A751005D6FFB /* MockDatabaseService.swift */,
+			);
+			path = RAWGBrowserTests;
+			sourceTree = "<group>";
+		};
+		CDEA326229B8AB34005D6FFB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -283,6 +346,34 @@
 			productReference = CDEA316D29B5DA41005D6FFB /* RAWGBrowser.app */;
 			productType = "com.apple.product-type.application";
 		};
+		CDEA325329B8A72D005D6FFB /* RAWGBrowserTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDEA325A29B8A72D005D6FFB /* Build configuration list for PBXNativeTarget "RAWGBrowserTests" */;
+			buildPhases = (
+				CDEA325029B8A72D005D6FFB /* Sources */,
+				CDEA325129B8A72D005D6FFB /* Frameworks */,
+				CDEA325229B8A72D005D6FFB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CDEA325929B8A72D005D6FFB /* PBXTargetDependency */,
+			);
+			name = RAWGBrowserTests;
+			packageProductDependencies = (
+				CDEA326329B8AB34005D6FFB /* SDWebImage */,
+				CDEA326529B8AB6F005D6FFB /* FirebaseAnalytics */,
+				CDEA326F29B8AB6F005D6FFB /* FirebaseDatabase */,
+				CDEA327129B8AB6F005D6FFB /* FirebaseFirestore */,
+				CDEA327329B8AB6F005D6FFB /* FirebaseFirestoreSwift */,
+				CDEA327529B8AB6F005D6FFB /* FirebaseFunctions */,
+				CDEA327729B8AB6F005D6FFB /* FirebaseStorage */,
+				CDEA327929B8BD2A005D6FFB /* FirebaseDatabaseSwift */,
+			);
+			productName = RAWGBrowserTests;
+			productReference = CDEA325429B8A72D005D6FFB /* RAWGBrowserTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -295,6 +386,10 @@
 				TargetAttributes = {
 					CDEA316C29B5DA41005D6FFB = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					CDEA325329B8A72D005D6FFB = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = CDEA316C29B5DA41005D6FFB;
 					};
 				};
 			};
@@ -316,6 +411,7 @@
 			projectRoot = "";
 			targets = (
 				CDEA316C29B5DA41005D6FFB /* RAWGBrowser */,
+				CDEA325329B8A72D005D6FFB /* RAWGBrowserTests */,
 			);
 		};
 /* End PBXProject section */
@@ -332,6 +428,13 @@
 				CDEA31AD29B73D96005D6FFB /* mockGenreList.json in Resources */,
 				CDEA319F29B61EAC005D6FFB /* mockGenreDetails.json in Resources */,
 				CDEA324F29B88BF6005D6FFB /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDEA325229B8A72D005D6FFB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +477,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CDEA325029B8A72D005D6FFB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDEA326029B8A751005D6FFB /* MockDatabaseService.swift in Sources */,
+				CDEA325E29B8A745005D6FFB /* MockAPIService.swift in Sources */,
+				CDEA325729B8A72D005D6FFB /* RAWGBrowserTests.swift in Sources */,
+				CDEA327C29B8C3C1005D6FFB /* RAWGViewModelsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CDEA325929B8A72D005D6FFB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CDEA316C29B5DA41005D6FFB /* RAWGBrowser */;
+			targetProxy = CDEA325829B8A72D005D6FFB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		CDEA317F29B5DA43005D6FFB /* Debug */ = {
@@ -551,6 +673,50 @@
 			};
 			name = Release;
 		};
+		CDEA325B29B8A72D005D6FFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y2ZMF37QVQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ruzmanorganizatiion.RAWGBrowserTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RAWGBrowser.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RAWGBrowser";
+			};
+			name = Debug;
+		};
+		CDEA325C29B8A72D005D6FFB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y2ZMF37QVQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ruzmanorganizatiion.RAWGBrowserTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RAWGBrowser.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/RAWGBrowser";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -568,6 +734,15 @@
 			buildConfigurations = (
 				CDEA318229B5DA43005D6FFB /* Debug */,
 				CDEA318329B5DA43005D6FFB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDEA325A29B8A72D005D6FFB /* Build configuration list for PBXNativeTarget "RAWGBrowserTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDEA325B29B8A72D005D6FFB /* Debug */,
+				CDEA325C29B8A72D005D6FFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -633,6 +808,46 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CDEA31D629B86A45005D6FFB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		CDEA326329B8AB34005D6FFB /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDEA31A329B71BE9005D6FFB /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		CDEA326529B8AB6F005D6FFB /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDEA31D629B86A45005D6FFB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		CDEA326F29B8AB6F005D6FFB /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDEA31D629B86A45005D6FFB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		CDEA327129B8AB6F005D6FFB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDEA31D629B86A45005D6FFB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		CDEA327329B8AB6F005D6FFB /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDEA31D629B86A45005D6FFB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		CDEA327529B8AB6F005D6FFB /* FirebaseFunctions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDEA31D629B86A45005D6FFB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFunctions;
+		};
+		CDEA327729B8AB6F005D6FFB /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDEA31D629B86A45005D6FFB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		CDEA327929B8BD2A005D6FFB /* FirebaseDatabaseSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CDEA31D629B86A45005D6FFB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabaseSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

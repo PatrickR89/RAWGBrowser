@@ -11,7 +11,7 @@ import SDWebImage
 /// `UIViewController` presenting details about selected game
 class GameDetailViewController: UIViewController {
 
-    let controller = GameDetailsController()
+    let controller: GameDetailsController
 
     let heroHeader: HeroImageView = {
         return HeroImageView()
@@ -29,10 +29,10 @@ class GameDetailViewController: UIViewController {
         return tableView
     }()
 
-    init(_ viewModel: GameDetailViewModel) {
+    init(_ viewModel: GameDetailViewModel, _ controller: GameDetailsController) {
+        self.controller = controller
         super.init(nibName: nil, bundle: nil)
         controller.createDataSource(for: tableView)
-        controller.populateData(viewModel.tableContent)
         heroHeader.setupUI(in: view.frame, for: viewModel.backgroundImage, with: viewModel.name)
         descriptionView.populateData(viewModel.description)
     }
