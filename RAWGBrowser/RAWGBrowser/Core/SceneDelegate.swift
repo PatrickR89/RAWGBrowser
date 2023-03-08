@@ -13,16 +13,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var mainCoordinator: MainCoordinator?
 
 
-    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene: UIWindowScene = (scene as? UIWindowScene) else {return}
+    func scene(
+        _ scene: UIScene, willConnectTo session: UISceneSession,
+        options connectionOptions: UIScene.ConnectionOptions) {
+            guard let windowScene: UIWindowScene = (scene as? UIWindowScene) else {return}
 
-        let navigationController = UINavigationController()
-        mainCoordinator = MainCoordinator(navigationController, APIService())
-        mainCoordinator?.start()
-        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        window?.windowScene = windowScene
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
-    }
+            let navigationController = NavigationController()
+            navigationController.setBackGround()
+            mainCoordinator = MainCoordinator(navigationController, APIService(), DatabaseService())
+            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+            window?.windowScene = windowScene
+            window?.rootViewController = navigationController
+            window?.makeKeyAndVisible()
+        }
 }
 

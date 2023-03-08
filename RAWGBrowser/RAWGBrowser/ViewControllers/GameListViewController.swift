@@ -12,10 +12,15 @@ protocol GameListViewControllerDelegate: AnyObject {
     func viewController(didRequestNextPage pageUrl: String)
 }
 
+protocol GameListViewControllerActions: AnyObject {
+    func viewControllerDidRequestClose()
+}
+
 class GameListViewController: UIViewController {
 
     let controller: GameListController
     weak var delegate: GameListViewControllerDelegate?
+    weak var actions: GameListViewControllerActions?
 
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -36,6 +41,7 @@ class GameListViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         customizeNavBar()
+        addNavigationItem()
     }
 
     func setupUI() {
@@ -58,6 +64,14 @@ class GameListViewController: UIViewController {
         setupBackground()
     }
 
+    private func addNavigationItem() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(systemName: "xmark"),
+            style: .plain,
+            target: self,
+            action: #selector(didTapCloseButton))
+    }
+
     private func customizeNavBar() {
         let customNavigationBarAppearance = UINavigationBarAppearance()
         customNavigationBarAppearance.configureWithOpaqueBackground()
@@ -75,6 +89,10 @@ class GameListViewController: UIViewController {
         gradient.startPoint = .init(x: 0.6, y: 0)
         gradient.endPoint = .init(x: 1, y: 0)
         view.layer.insertSublayer(gradient, at: 0)
+    }
+
+    @objc private func didTapCloseButton() {
+        actions?.viewControllerDidRequestClose()
     }
 }
 

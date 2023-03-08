@@ -14,6 +14,7 @@ protocol APIServiceDelegate: AnyObject {
     func service(isWaiting: Bool)
     func service(didRecieveGameList data: GameListResponseModel)
     func service(didUpdateGamesList data: GameListResponseModel)
+    func service(didRecieveId id: Int)
 }
 
 class APIService {
@@ -114,6 +115,7 @@ class APIService {
     }
 
     func fetchGamesForGenre(_ genreId: Int) {
+        delegate?.service(didRecieveId: genreId)
         let url = URL(string: "\(APIConstants.baseURL)games?\(APIConstants.apiKey)&genres=\(genreId)")!
 
         var request = URLRequest(url: url)
@@ -266,12 +268,6 @@ class APIService {
 
         delegate?.service(isWaiting: true)
         task.resume()
-    }
-}
-
-extension APIService: GenreDetailViewCellAction {
-    func cellDidRecieveTap(for genreId: Int) {
-        fetchGamesForGenre(genreId)
     }
 }
 

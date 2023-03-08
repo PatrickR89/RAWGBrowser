@@ -10,19 +10,27 @@ import UIKit
 class MainCoordinator {
 
     let navController: UINavigationController
-    let service: APIService
+    let networkService: APIService
+    let databaseService: DatabaseService
     var onboardingController: OnboardingController?
     var gameListController: GameListController?
 
-    init(_ navController: UINavigationController, _ service: APIService) {
+    init(_ navController: UINavigationController, _ networkService: APIService, _ databaseService: DatabaseService) {
         self.navController = navController
-        self.service = service
-        self.service.delegate = self
+        self.networkService = networkService
+        self.databaseService = databaseService
+        self.networkService.delegate = self
+        self.databaseService.delegate = self
     }
 
-    func start() {
-        presentOnboardingViewController(with: [])
-        service.fetchGenres()
+    func start(_ id: Int?) {
+
+        guard let id else {
+            networkService.fetchGenres()
+            return
+        }
+
+        networkService.fetchGamesForGenre(id)
     }
 
     private func presentServiceNotification(_ message: String) {
@@ -40,7 +48,7 @@ class MainCoordinator {
 
         DispatchQueue.main.async {
             let serviceNotification = ServiceNotificationView(frame: frame, message: message)
-            self.navController.viewControllers.last?.view.addSubview(serviceNotification)
+            self.navController.view.addSubview(serviceNotification)
         }
     }
 
@@ -72,7 +80,7 @@ class MainCoordinator {
     }
 
     func presentOnboardingViewController(with data: [GenreModel]) {
-        onboardingController = OnboardingController(service)
+        onboardingController = OnboardingController(self)
         onboardingController?.populateData(data)
         guard let onboardingController else { return }
         DispatchQueue.main.async {
@@ -86,7 +94,8 @@ class MainCoordinator {
         guard let gameListController else { return }
         DispatchQueue.main.async {
             let viewController = GameListViewController(gameListController)
-            viewController.delegate = self.service
+            viewController.delegate = self.networkService
+            viewController.actions = self
             self.navController.setViewControllers([viewController], animated: true)
         }
     }
@@ -99,7 +108,23 @@ class MainCoordinator {
     }
 }
 
+extension MainCoordinator: GenreDetailViewCellAction {
+    func cellDidRecieveTap(for genreId: Int) {
+        databaseService.saveGenreId(genreId)
+    }
+}
+
+extension MainCoordinator: GameListViewControllerActions {
+    func viewControllerDidRequestClose() {
+        databaseService.removeId()
+    }
+}
+
 extension MainCoordinator: APIServiceDelegate {
+    func service(didRecieveId id: Int) {
+        databaseService.saveGenreId(id)
+    }
+
     func service(didReciveGame data: GameDetailViewModel) {
         presentGameDetailsViewController(with: data)
     }
@@ -131,5 +156,17 @@ extension MainCoordinator: APIServiceDelegate {
                 self.removeSpinner()
             }
         }
+    }
+}
+
+extension MainCoordinator: DatabaseServiceDelegate {
+    func databaseService(didRecieveError error: String) {
+        DispatchQueue.main.async {
+            self.presentServiceNotification(error)
+        }
+    }
+
+    func databaseService(didRecieveId id: Int?) {
+        start(id)
     }
 }

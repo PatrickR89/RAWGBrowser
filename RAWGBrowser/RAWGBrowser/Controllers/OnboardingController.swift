@@ -15,10 +15,10 @@ class OnboardingController {
     }
 
     var dataSource: UICollectionViewDiffableDataSource<Int, Int>?
-    let service: APIService
+    let coordinator: MainCoordinator
 
-    init(_ service: APIService) {
-        self.service = service
+    init(_ coordinator: MainCoordinator) {
+        self.coordinator = coordinator
     }
 
     func createDataSource(for collectionView: UICollectionView) {
@@ -35,7 +35,7 @@ class OnboardingController {
             }
             if let genre {
                 cell.setCellData(genre)
-                cell.action = self?.service
+                cell.action = self?.coordinator
             }
             return cell
         }
