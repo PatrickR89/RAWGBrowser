@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// `ViewModel` presenting detailed data about requested game, in ``GameDetailViewController`` with ``GameDetailsController``
 struct GameDetailViewModel {
     let name: String
     let backgroundImage: URL?

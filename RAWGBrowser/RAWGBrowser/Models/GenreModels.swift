@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// `Model` for decodin data recieved via `HTTPRequest`
 struct GenreResponseModel: Codable {
     let count: Int
     let next: String?
@@ -14,6 +15,7 @@ struct GenreResponseModel: Codable {
     let results: [GenreModel]
 }
 
+/// `Model` which is contained in ``GenreResponseModel`` as result data in array
 struct GenreModel: Codable {
     let id: Int
     let name: String

@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// `ViewModel` for populating data in ``GameListController`` and presenting in ``GameListViewController``
 struct GameListElementViewModel {
     let id: Int
     let name: String

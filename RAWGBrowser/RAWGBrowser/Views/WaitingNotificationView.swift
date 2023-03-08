@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// `UIView class` which presents `UIActivityIndicatorView` to notify user when application is waiting for `HTTPResponse` from `API`
 class WaitingNotificationView: UIView {
 
     let spinner = UIActivityIndicatorView(style: .large)
@@ -24,6 +25,7 @@ class WaitingNotificationView: UIView {
         spinner.stopAnimating()
     }
 
+    /// Method to setup UI
     func setupUI() {
         layer.zPosition = CGFloat(Float.greatestFiniteMagnitude) - 5
         addSubview(spinner)

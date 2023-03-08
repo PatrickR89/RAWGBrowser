@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 
+/// `UIViewController` presenting details about selected game
 class GameDetailViewController: UIViewController {
 
     let controller = GameDetailsController()
@@ -45,6 +46,7 @@ class GameDetailViewController: UIViewController {
         setupUI()
     }
 
+    /// Main method to set up UI
     func setupUI() {
         addHeroHeaderSubview()
         addTableViewSubview()
@@ -52,6 +54,7 @@ class GameDetailViewController: UIViewController {
         setupBackground()
     }
 
+    /// Method which sets customized background
     private func setupBackground() {
         let gradient = CAGradientLayer()
         gradient.colors = [ColorConstants.darkBackground.cgColor, ColorConstants.lightBackground.cgColor]
@@ -63,6 +66,7 @@ class GameDetailViewController: UIViewController {
 }
 
 extension GameDetailViewController: HeroImageViewDelegate {
+    /// `Delegate protocol` via which ``GameDetailViewController`` is notified to show ``descriptionView``
     func heroImageViewDidRequestInfo() {
         descriptionView.isHidden = false
         view.layoutIfNeeded()
@@ -70,6 +74,7 @@ extension GameDetailViewController: HeroImageViewDelegate {
 }
 
 extension GameDetailViewController: DescriptionViewDelegate {
+    /// `Delegate protocol` via which ``GameDetailViewController`` is notified to hide ``descriptionView``
     func viewDidRequestClose() {
         descriptionView.isHidden = true
         view.layoutIfNeeded()
@@ -77,6 +82,7 @@ extension GameDetailViewController: DescriptionViewDelegate {
 }
 
 private extension GameDetailViewController {
+    /// Method to add ``heroHeader`` as subview and set declared constraints
     func addHeroHeaderSubview() {
         view.addSubview(heroHeader)
         heroHeader.delegate = self
@@ -90,6 +96,7 @@ private extension GameDetailViewController {
         ])
     }
 
+    /// Method to add ``tableView`` as subview and set declared constraints
     func addTableViewSubview() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -103,6 +110,7 @@ private extension GameDetailViewController {
         ])
     }
 
+    /// Method to add ``descriptionView`` as subview and set declared constraints
     func addDescriptionViewSubview() {
         view.addSubview(descriptionView)
         descriptionView.delegate = self

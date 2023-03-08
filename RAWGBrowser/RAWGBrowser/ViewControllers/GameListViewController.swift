@@ -7,15 +7,18 @@
 
 import UIKit
 
+/// `Delegate protocol` which notifies ``APIService`` about selected game from list, and request for loading games from next page, when bottom is reached
 protocol GameListViewControllerDelegate: AnyObject {
     func viewController(didTapCellWith id: Int)
     func viewController(didRequestNextPage pageUrl: String)
 }
 
+/// `Action protocol` which notifies ``MainCoordinator`` about request for closing self and reseting selected genre ID
 protocol GameListViewControllerActions: AnyObject {
     func viewControllerDidRequestClose()
 }
 
+/// `UIViewController` presenting list of games recieved from ``APIService`` for selected Genre
 class GameListViewController: UIViewController {
 
     let controller: GameListController
@@ -44,6 +47,7 @@ class GameListViewController: UIViewController {
         addNavigationItem()
     }
 
+    /// Main method to set up UI and declared constraints
     func setupUI() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -64,6 +68,7 @@ class GameListViewController: UIViewController {
         setupBackground()
     }
 
+    /// Method adding `UIBarButtonItem` to `navigation`
     private func addNavigationItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             image: UIImage(systemName: "xmark"),
@@ -72,6 +77,7 @@ class GameListViewController: UIViewController {
             action: #selector(didTapCloseButton))
     }
 
+    /// Method which customizes the appearance of `UINavigationBar`
     private func customizeNavBar() {
         let customNavigationBarAppearance = UINavigationBarAppearance()
         customNavigationBarAppearance.configureWithOpaqueBackground()
@@ -81,6 +87,7 @@ class GameListViewController: UIViewController {
         navigationController?.navigationBar.tintColor = ColorConstants.orangeAccent
     }
 
+    /// Method which customizes view background
     private func setupBackground() {
         let gradient = CAGradientLayer()
         gradient.colors = [ColorConstants.darkBackground.cgColor,
@@ -91,12 +98,14 @@ class GameListViewController: UIViewController {
         view.layer.insertSublayer(gradient, at: 0)
     }
 
+    /// Method called by tapping `closeButton` in `navigationBar`
     @objc private func didTapCloseButton() {
         actions?.viewControllerDidRequestClose()
     }
 }
 
 extension GameListViewController: UITableViewDelegate {
+    /// Method to open ``GameDetailViewController`` for selected game, via ``MainCoordinator``
     func tableView(
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath) {
@@ -107,6 +116,7 @@ extension GameListViewController: UITableViewDelegate {
             delegate?.viewController(didTapCellWith: itemIdentifier)
         }
 
+    /// Method to notify ``APIService`` about reaching the end of tableView
     func tableView(
         _ tableView: UITableView, willDisplay cell: UITableViewCell,
         forRowAt indexPath: IndexPath) {

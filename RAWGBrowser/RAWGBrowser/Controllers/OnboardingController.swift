@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// `Controller class` containing methods for ``OnboardingViewController``
 class OnboardingController {
     var genres: [GenreViewModel] = [] {
         didSet {
@@ -21,6 +22,8 @@ class OnboardingController {
         self.coordinator = coordinator
     }
 
+    /// Method for creating `DataSource` for `UICollectionView` in ``OnboardingViewController``
+    /// - Parameter collectionView: `UICollectionView` which will recieve required data source
     func createDataSource(for collectionView: UICollectionView) {
         let diffableDataSource = UICollectionViewDiffableDataSource<
             Int, Int
@@ -44,6 +47,7 @@ class OnboardingController {
         updateSnapshot()
     }
 
+    /// Method to update data source with newly recieved data
     func updateSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Int, Int>()
         snapshot.appendSections([0])
@@ -55,6 +59,8 @@ class OnboardingController {
         dataSource?.apply(snapshot, animatingDifferences: true)
     }
 
+    /// Method to populate data which will be presented in ``OnboardingViewController`` `UICollectionView` via `UICollectionViewDiffableDataSource`
+    /// - Parameter data: recieved data from ``APIService``
     func populateData(_ data: [GenreModel]) {
 
         let updatedData = data.map { model in

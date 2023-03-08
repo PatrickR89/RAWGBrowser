@@ -7,6 +7,8 @@
 
 import UIKit
 
+/// `Controller class` containing methods required for ``GameListViewController``
+/// NOTE: ``previousPage`` is currently not use - remains for future updates, when ``gameList`` length will be limited, to enable loading previous pages from `RAWG API`
 class GameListController {
     var previousPage: String?
     var nextPage: String?
@@ -24,6 +26,8 @@ class GameListController {
 
     var diffableDataSource: UITableViewDiffableDataSource<Int, Int>?
 
+    /// Method to create dataSource for `UITableView` in ``GameListViewController``
+    /// - Parameter tableView: `UITableView` which will recieve created dataSource as it's dataSource
     func createDataSource(for tableView: UITableView) {
         let dataSource = UITableViewDiffableDataSource<
             Int, Int
@@ -44,6 +48,7 @@ class GameListController {
         updateSnapshot()
     }
 
+    /// Method to update data in ``diffableDataSource``
     func updateSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Int, Int>()
         snapshot.appendSections([0])
@@ -53,6 +58,8 @@ class GameListController {
         diffableDataSource?.apply(snapshot)
     }
 
+    /// Method to update data in ``gameList``
+    /// - Parameter data: data recieved from ``APIService``
     func populateData(_ data: GameListResponseModel) {
         previousPage = data.previous
         nextPage = data.next

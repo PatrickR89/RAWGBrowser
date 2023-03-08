@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// `Controller class` containing methods required for ``GameDetailViewController``
 class GameDetailsController {
     var keys: [String] = [] {
         didSet {
@@ -21,6 +22,8 @@ class GameDetailsController {
 
     var dataSource: UITableViewDiffableDataSource<Int, String>?
 
+    /// Method to create dataSource required for `UITableView` in ``GameDetailViewController``
+    /// - Parameter tableView: `UITableView` which will recieve created dataSource as it's dataSource
     func createDataSource(for tableView: UITableView) {
         let dataSource = UITableViewDiffableDataSource<
             Int, String
@@ -41,6 +44,7 @@ class GameDetailsController {
         updateSnapshot()
     }
 
+    /// Method to update data in ``dataSource``
     func updateSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Int, String>()
         snapshot.appendSections([0])
@@ -49,6 +53,8 @@ class GameDetailsController {
         dataSource?.apply(snapshot)
     }
 
+    /// Method to update data in ``details``
+    /// - Parameter data: data recieved from ``APIService``
     func populateData(_ data: [String: [String]]) {
         self.details = data
     }

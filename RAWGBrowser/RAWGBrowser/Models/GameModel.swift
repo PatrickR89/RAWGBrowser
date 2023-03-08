@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// `Model` for fetching and decoding `HTTPResponse` for individual selected games
 struct GameModel: Codable {
     let name: String
     let released: String?

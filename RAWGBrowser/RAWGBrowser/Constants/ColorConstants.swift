@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Struct containing all colors used in application
 struct ColorConstants {
     static let darkBackground = UIColor(red: 6/255, green: 16/255, blue: 43/255, alpha: 1)
     static let lightBackground = UIColor(red: 55/255, green: 63/255, blue: 87/255, alpha: 1)

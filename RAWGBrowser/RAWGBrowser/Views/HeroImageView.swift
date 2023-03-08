@@ -8,10 +8,12 @@
 import UIKit
 import SDWebImage
 
+/// `Delegate protocol` which notifies ``GameDetailViewController`` to show ``DescriptionView``
 protocol HeroImageViewDelegate: AnyObject {
     func heroImageViewDidRequestInfo()
 }
 
+/// `UIView` which shows image and title of game presented by ``GameDetailViewController``, also containing `UIButton` to show/hide ``DescriptionView``
 class HeroImageView: UIView {
 
     weak var delegate: HeroImageViewDelegate?
@@ -44,6 +46,11 @@ class HeroImageView: UIView {
         return button
     }()
 
+    /// Main method to create UI
+    /// - Parameters:
+    ///   - frame: `CGRect` given by parent, used for shade over the ``imageView``
+    ///   - imageUrl: `URL` containing ImageData, parsed with `SDWebImage`
+    ///   - title: `String` containing the title od presented game
     func setupUI(in frame: CGRect, for imageUrl: URL?, with title: String) {
         addImageViewSubview(imageUrl)
         addShaderSubview(frame)
@@ -51,12 +58,15 @@ class HeroImageView: UIView {
         addInfoButtonSubview()
     }
 
+    /// Method called on tap on ``infoButton``
     @objc private func didTapInfo() {
         delegate?.heroImageViewDidRequestInfo()
     }
 }
 
 private extension HeroImageView {
+    /// Method to add ``imageView`` as subview, with declared constraints
+    /// - Parameter imageUrl: image URL parsed with `SDWebImage`
     func addImageViewSubview(_ imageUrl: URL?) {
         addSubview(imageView)
         if let url = imageUrl {
@@ -72,6 +82,8 @@ private extension HeroImageView {
         ])
     }
 
+    /// Method to add ``shaderView`` as subview, with declared constraints
+    /// - Parameter frame: `CGRect` required for proper rendering
     func addShaderSubview(_ frame: CGRect) {
         addSubview(shaderView)
         shaderView.translatesAutoresizingMaskIntoConstraints = false
@@ -92,6 +104,8 @@ private extension HeroImageView {
         ])
     }
 
+    /// Method to add ``titleLabel`` as subview, with declared constraints
+    /// - Parameter title: title of the game
     func addTitleLabelSubview(_ title: String) {
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -104,6 +118,7 @@ private extension HeroImageView {
         ])
     }
 
+    /// Method to add ``infoButton`` as subview, with declared constraints
     func addInfoButtonSubview() {
         addSubview(infoButton)
         infoButton.translatesAutoresizingMaskIntoConstraints = false

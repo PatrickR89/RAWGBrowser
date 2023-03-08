@@ -8,6 +8,9 @@
 import UIKit
 
 extension UIButton {
+    /// Method adds visual parameters to `UIButton` and returns styled button
+    /// - Parameter imageSystemName: selected system image name (SFSymbol)
+    /// - Returns: styled  `UIButton`
     func createCircularButton(_ imageSystemName: String) -> UIButton {
         let buttonImage = UIImage(
             systemName: imageSystemName,
@@ -23,6 +26,8 @@ extension UIButton {
         return self
     }
 
+    /// Method creates styled `UIButton` for ``GenreDetailViewCell`` in ``OnboardingViewController``
+    /// - Returns: styled `UIButton`
     func createExploreButton() -> UIButton {
         layer.cornerRadius = 20
         frame.size.height = 40

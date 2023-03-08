@@ -8,10 +8,12 @@
 import UIKit
 import SDWebImage
 
+/// `Delegate protocol` targeting ``MainCoordinator`` in order to notify about selected genre from list
 protocol GenreDetailViewCellAction: AnyObject {
     func cellDidRecieveTap(for genreId: Int)
 }
 
+/// `UICollectionViewCell` which presents details of genre in ``OnboardingViewController``
 class GenreDetailViewCell: UICollectionViewCell {
 
     weak var action: GenreDetailViewCellAction?
@@ -44,6 +46,8 @@ class GenreDetailViewCell: UICollectionViewCell {
 
     var id = 0
 
+    /// Method to update data which will be visualy presented
+    /// - Parameter viewModel: viewModel created from ``GenreModel`` which is recieved from ``APIService``
     func setCellData(_ viewModel: GenreViewModel) {
         titleLabel.text = viewModel.name
         gameCountLabel.text = "No. of games in genre: \(viewModel.gamesCount)"
@@ -57,6 +61,7 @@ class GenreDetailViewCell: UICollectionViewCell {
 
 private extension GenreDetailViewCell {
 
+    /// Main method to create UI
     func setupUI() {
         addImageViewSubview()
         addTitleLabelSubview()
@@ -68,6 +73,7 @@ private extension GenreDetailViewCell {
         contentView.backgroundColor = ColorConstants.lightBackground.withAlphaComponent(0.2)
     }
 
+    /// Method to add ``imageView`` as subview, with declared constraints
     func addImageViewSubview() {
         contentView.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -80,6 +86,7 @@ private extension GenreDetailViewCell {
         ])
     }
 
+    /// Method to add ``titleLabel`` as subview, with declared constraints
     func addTitleLabelSubview() {
         contentView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -91,6 +98,7 @@ private extension GenreDetailViewCell {
         ])
     }
 
+    /// Method to add ``exploreButton`` as subview, with declared constraints
     func addExploreButtonSubview() {
         contentView.addSubview(exploreButton)
         exploreButton.translatesAutoresizingMaskIntoConstraints = false
@@ -103,6 +111,7 @@ private extension GenreDetailViewCell {
         ])
     }
 
+    /// Method to add ``gameCountLabel`` as subview, with declared constraints
     func addGameCountLabelSubview() {
         contentView.addSubview(gameCountLabel)
         gameCountLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -114,6 +123,7 @@ private extension GenreDetailViewCell {
         ])
     }
 
+    /// Method called by tapping on ``exploreButton``
     @objc func didTapExplore() {
         action?.cellDidRecieveTap(for: id)
     }

@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// `Coordinator class` contains all ViewControllers, and is responsible for all screen changes, as also for communication between all separate classes
 class MainCoordinator {
 
     let navController: UINavigationController
@@ -23,6 +24,8 @@ class MainCoordinator {
         self.databaseService.delegate = self
     }
 
+    /// Main method to start application
+    /// - Parameter id: genre id as optional `Int`, in case of nil ``APIService`` sends request to `RAWG API` to fetch genres, else request to fetch games for selected genre
     func start(_ id: Int?) {
 
         guard let id else {
@@ -33,6 +36,8 @@ class MainCoordinator {
         networkService.fetchGamesForGenre(id)
     }
 
+    /// Method to present error as modal view
+    /// - Parameter message: error message
     private func presentServiceNotification(_ message: String) {
 
         var yPosition = navController.view.frame.height / 2
@@ -52,6 +57,7 @@ class MainCoordinator {
         }
     }
 
+    /// Method to present loading spinner while waiting for response
     private func presentLoadingSpinner() {
 
         var yPosition = navController.view.frame.height / 2
@@ -71,6 +77,7 @@ class MainCoordinator {
         }
     }
 
+    /// Method to remove loading spinner on recieved response or error
     private func removeSpinner() {
         DispatchQueue.main.async {
             if let spinner = self.navController.view.subviews.first(where: {$0 as? WaitingNotificationView != nil}) {
@@ -79,6 +86,8 @@ class MainCoordinator {
         }
     }
 
+    /// Method to present main screen where user selects genre
+    /// - Parameter data: recieved list of available genres from `RAWG API`
     func presentOnboardingViewController(with data: [GenreModel]) {
         onboardingController = OnboardingController(self)
         onboardingController?.populateData(data)
@@ -89,6 +98,8 @@ class MainCoordinator {
         }
     }
 
+    /// Method to present list of games for selected genre
+    /// - Parameter data: response from `RAWG API` containing results and next page URL
     func presentGameListViewController(with data: GameListResponseModel) {
         gameListController = GameListController(data)
         guard let gameListController else { return }
@@ -100,6 +111,8 @@ class MainCoordinator {
         }
     }
 
+    /// Method to present screen with detailed information about selected game
+    /// - Parameter data: view model converted from `HTTPResponse`
     func presentGameDetailsViewController(with data: GameDetailViewModel) {
         DispatchQueue.main.async {
             let viewController = GameDetailViewController(data)
@@ -121,26 +134,38 @@ extension MainCoordinator: GameListViewControllerActions {
 }
 
 extension MainCoordinator: APIServiceDelegate {
+    /// Delegate method wich notifies of recieved genre id, forwarded to ``DatabaseService`` in order to be saved
+    /// - Parameter id: genre id
     func service(didRecieveId id: Int) {
         databaseService.saveGenreId(id)
     }
 
+    /// Delegate method notifying of recieved data for single game, forwarding it to ``presentGameDetailsViewController(with:)``
+    /// - Parameter data: data about the game
     func service(didReciveGame data: GameDetailViewModel) {
         presentGameDetailsViewController(with: data)
     }
 
+    /// Delegate method notifying about recieved list of games for selected genre
+    /// - Parameter data: `HTTPResponse` decoded, containing list of games and next page URL
     func service(didRecieveGameList data: GameListResponseModel) {
         presentGameListViewController(with: data)
     }
 
+    /// Delegate method notifying about updated list of games
+    /// - Parameter data: list of games
     func service(didUpdateGamesList data: GameListResponseModel) {
         gameListController?.populateData(data)
     }
 
+    /// Delegate method notifying about recieved list of genres, in order to present ``OnboardingViewController``
+    /// - Parameter data: list of genres
     func service(didRecieveGenres data: [GenreModel]) {
         self.presentOnboardingViewController(with: data)
     }
 
+    /// Delegate method notifying about error from ``APIService``, forwarding error message to `presentServiceNotification`
+    /// - Parameter error: <#error description#>
     func service(didRecieveError error: String) {
         DispatchQueue.main.async {
             self.presentServiceNotification(error)
@@ -148,6 +173,8 @@ extension MainCoordinator: APIServiceDelegate {
 
     }
 
+    /// Delegate method notifying about waiting for response from `RAWG API`
+    /// - Parameter isWaiting: `Bool` - waiting state
     func service(isWaiting: Bool) {
         DispatchQueue.main.async {
             if isWaiting {
@@ -160,12 +187,16 @@ extension MainCoordinator: APIServiceDelegate {
 }
 
 extension MainCoordinator: DatabaseServiceDelegate {
+    /// Delegate method notifying about error from ``DatabaseService``, forwarding error message to `presentServiceNotification`
+    /// - Parameter error: error message
     func databaseService(didRecieveError error: String) {
         DispatchQueue.main.async {
             self.presentServiceNotification(error)
         }
     }
 
+    /// Delegate method notifying about change in stored genreId
+    /// - Parameter id: genreId, optional in case of removed value
     func databaseService(didRecieveId id: Int?) {
         start(id)
     }

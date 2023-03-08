@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// `UIViewController` which presents main screen enabling selection of Genre
 class OnboardingViewController: UIViewController {
 
     let controller: OnboardingController
@@ -43,6 +44,7 @@ class OnboardingViewController: UIViewController {
         setupUI()
     }
 
+    /// Main method to set up UI
     func setupUI() {
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,6 +62,7 @@ class OnboardingViewController: UIViewController {
         setupBackground()
     }
 
+    /// Method to add custom background to view
     private func setupBackground() {
         let gradient = CAGradientLayer()
         gradient.colors = [ColorConstants.darkBackground.cgColor,
@@ -72,6 +75,7 @@ class OnboardingViewController: UIViewController {
 }
 
 extension OnboardingViewController: UICollectionViewDelegate {
+    /// Method which centers view on single cell on scroll deceleration
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView == collectionView {
             let center = CGPoint(x: collectionView.frame.size.width / 2 + scrollView.contentOffset.x,
@@ -82,6 +86,7 @@ extension OnboardingViewController: UICollectionViewDelegate {
         }
     }
 
+    /// Method which centers view on single cell when user stops scrolling
     func scrollViewWillEndDragging(
         _ scrollView: UIScrollView, withVelocity velocity: CGPoint,
         targetContentOffset: UnsafeMutablePointer<CGPoint>) {

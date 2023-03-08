@@ -8,6 +8,8 @@
 import UIKit
 
 extension UILabel {
+    /// Method creates styled `UILabel` which is used for error messages provided to the user
+    /// - Returns: styled `UILabel`
     func createNotificationLabel() -> UILabel {
         backgroundColor = ColorConstants.darkBackground
         layer.cornerRadius = 10
@@ -22,6 +24,8 @@ extension UILabel {
         return self
     }
 
+    /// Method creates styled `UILabel` which presents Game name  for ``GameViewCell``
+    /// - Returns: styled `UILabel`
     func createNameLabel() -> UILabel {
         textColor = ColorConstants.orangeAccent
         font = UIFont.systemFont(ofSize: 15, weight: .bold)
@@ -31,6 +35,8 @@ extension UILabel {
         return self
     }
 
+    /// Method creates styled `UILabel` presents Game rating for ``GameViewCell``
+    /// - Returns: styled `UILabel`
     func createRatingLabel() -> UILabel {
         font = UIFont.systemFont(ofSize: 10)
         textColor = ColorConstants.textColor

@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 
+/// `UITableViewCell` presenting each game forwarded by ``APIService``
 class GameViewCell: UITableViewCell {
 
     var id = 0
@@ -56,6 +57,7 @@ class GameViewCell: UITableViewCell {
         }
     }
 
+    /// Main method to setup UI
     func setupUI() {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
@@ -68,6 +70,7 @@ class GameViewCell: UITableViewCell {
 }
 
 private extension GameViewCell {
+    /// Method to add ``posterImageView`` as subview and set declared constraints
     func addPosterImageViewSubview() {
         contentView.addSubview(posterImageView)
         posterImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -79,6 +82,7 @@ private extension GameViewCell {
             posterImageView.heightAnchor.constraint(equalToConstant: 100)
         ])
     }
+    /// Method to add ``nameLabel`` as subview and set declared constraints
     func addNameLabelSubview() {
         contentView.addSubview(nameLabel)
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -91,6 +95,7 @@ private extension GameViewCell {
         ])
     }
 
+    /// Method to add ``ratingLabel`` as subview and set declared constraints
     func addRatingLabelSubview() {
         contentView.addSubview(ratingLabel)
         ratingLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -101,6 +106,7 @@ private extension GameViewCell {
         ])
     }
 
+    /// Method to add ``imageViewCover`` as subview and set declared constraints, which covers ``posterImageView``, adding defined shading
     func addImageShaderSubview() {
         contentView.addSubview(imageViewCover)
         imageViewCover.translatesAutoresizingMaskIntoConstraints = false

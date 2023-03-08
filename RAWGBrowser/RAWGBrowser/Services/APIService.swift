@@ -62,6 +62,7 @@ class APIService {
         }
     }
 
+    /// Method to fetch all available genres from `RAWG API`, using `HTTPRequest`
     func fetchGenres() {
         let url = URL(string: "\(APIConstants.baseURL)\(APIConstants.genresURL)")!
 
@@ -114,6 +115,8 @@ class APIService {
         task.resume()
     }
 
+    /// Method to fetch games for given genre  from `RAWG API`, using `HTTPRequest`
+    /// - Parameter genreId: id for genre
     func fetchGamesForGenre(_ genreId: Int) {
         delegate?.service(didRecieveId: genreId)
         let url = URL(string: "\(APIConstants.baseURL)games?\(APIConstants.apiKey)&genres=\(genreId)")!
@@ -167,6 +170,8 @@ class APIService {
         task.resume()
     }
 
+    /// Method to fetch next page of games for given genre from `RAWG API`, using `HTTPRequest`
+    /// - Parameter pageString: `String` containing required path for `URLRequest`
     func fetchGamesNextPage(for pageString: String) {
         guard let url = URL(string: pageString) else { return }
 
@@ -219,6 +224,8 @@ class APIService {
         task.resume()
     }
 
+    /// Method to fetch selected game from `RAWG API`, using `HTTPRequest`
+    /// - Parameter id: game id, as the search query param
     func fetchGame(by id: Int) {
         let url = URL(string: "\(APIConstants.baseURL)games/\(id)?\(APIConstants.apiKey)")!
 

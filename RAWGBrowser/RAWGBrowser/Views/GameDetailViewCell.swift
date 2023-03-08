@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// `UITableViewCell` which presents details from loaded game, using ``nameLabel`` top present keys/categories, and ``stackView`` to present values for each category
 class GameDetailViewCell: UITableViewCell {
 
     let nameLabel: UILabel = {
@@ -34,6 +35,10 @@ class GameDetailViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    /// Method to populate visual data in cell
+    /// - Parameters:
+    ///   - key: value provided to ``nameLabel``
+    ///   - values: values for which new `UILabel`s are created and added to ``stackView`` as arranged subviews
     func populateData(key: String, values: [String]) {
         nameLabel.text = key
 
@@ -47,6 +52,7 @@ class GameDetailViewCell: UITableViewCell {
         }
     }
 
+    /// Method to create UI with declared constraints,  disabling interaction for `UITableViewCell`
     func setupUI() {
         isUserInteractionEnabled = false
         backgroundColor = .clear

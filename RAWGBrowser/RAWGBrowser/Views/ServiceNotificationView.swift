@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// `UIView class` which is presented in case of errors, in order to provide user with error information
 class ServiceNotificationView: UIView {
 
     let notificationLabel: UILabel = {
@@ -26,6 +27,7 @@ class ServiceNotificationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    /// Main method to setup visuals and declared constraints
     func setupUI() {
         layer.zPosition = CGFloat(Float.greatestFiniteMagnitude)
         addSubview(notificationLabel)
@@ -39,6 +41,7 @@ class ServiceNotificationView: UIView {
         ])
     }
 
+    /// Method to remove class from superview after defined time
     func removeSelf() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.removeFromSuperview()

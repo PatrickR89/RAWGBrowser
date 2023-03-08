@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// `ViewModel` provided to ``OnboardingController`` as the blueprint for presented data in ``OnboardingViewController``
 struct GenreViewModel {
     let id: Int
     let name: String

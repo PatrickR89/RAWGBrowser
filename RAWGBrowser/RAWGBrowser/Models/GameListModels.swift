@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Response `Model` for fetching and decoding List of games for given Genre
 struct GameListResponseModel: Codable {
     let count: Int
     let next: String?
@@ -14,6 +15,7 @@ struct GameListResponseModel: Codable {
     let results: [GameListElementModel]
 }
 
+/// `Model` contained as result array in ``GameListResponseModel``
 struct GameListElementModel: Codable {
     let id: Int
     let name: String

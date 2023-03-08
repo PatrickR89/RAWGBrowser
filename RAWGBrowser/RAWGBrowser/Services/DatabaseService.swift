@@ -26,6 +26,8 @@ class DatabaseService {
         
     }
 
+    /// Method to save genresId to `Firebase`
+    /// - Parameter id: id of genre which will be saved
     func saveGenreId(_ id: Int) {
 
         let genreIdRef = dbReference.child("genre_id")
@@ -36,6 +38,7 @@ class DatabaseService {
         }
     }
 
+    /// Observer/subscription to `Firebase` in order to listen to changes created for genreId
     func observeGenreId() {
         let idObserver = dbReference.observe(.value) { [weak self] snapshot  in
             guard let dictionary = snapshot.value as? [String: Int] else {
@@ -49,6 +52,7 @@ class DatabaseService {
         observers.append(idObserver)
     }
 
+    /// Method to remove genreId from `Firebase
     func removeId() {
         let genreIdRef = dbReference.child("genre_id")
         genreIdRef.removeValue { [weak self] error, _ in

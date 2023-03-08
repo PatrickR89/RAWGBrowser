@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Custom `UINavigationController` class, setting status bar to light content as the application is dark, and setting custom background
 class NavigationController: UINavigationController {
 
     open override var preferredStatusBarStyle: UIStatusBarStyle {
