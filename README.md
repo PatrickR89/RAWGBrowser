@@ -95,4 +95,19 @@ For the project two dependencies were used.
 In order to keep code cleaner, several methods were moved to their respective extension, including extension for *UILabel*, and *UIButton*,
 while constants were stored in separate structs as static instances.
 
+# Update
 
+## Settings
+
+Add *SettingsViewController* with respective *Controller* and View to be opened from *GamesListViewController* via *MainCoordinator*. Setting currently contains only one cell in one section, available for further development.
+
+
+![settingsView](https://user-images.githubusercontent.com/87969333/223854921-371e88b6-9048-4a0f-9b93-6eb8807ce99b.png)
+
+## Colors
+
+Text colors were changed mainly from orange to white for better user expirience (text in DescriptionView, GameViewCell titleLabel...)
+
+## NotificationWindow
+
+In order to avoid invasion of *NavigationController* or other ViewControllers for that matter, for spinner and error message views new instance of *UIWindow* is created, which presents information to user, and is destroyed on child's lifecycle end.
