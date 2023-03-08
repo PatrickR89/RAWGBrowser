@@ -108,7 +108,7 @@ class MainCoordinator {
             let viewController = GameListViewController(gameListController)
             viewController.delegate = self.networkService
             viewController.actions = self
-            self.navController.setViewControllers([viewController], animated: true)
+            self.navController.pushViewController(viewController, animated: true)
         }
     }
 
@@ -132,7 +132,15 @@ extension MainCoordinator: GenreDetailViewCellAction {
 }
 
 extension MainCoordinator: GameListViewControllerActions {
-    func viewControllerDidRequestClose() {
+    func viewControllerDidRequestSettings() {
+        let viewController = SettingsViewController()
+        viewController.delegate = self
+        navController.present(viewController, animated: true)
+    }
+}
+
+extension MainCoordinator: SettingsViewControllerDelegate {
+    func viewControllerDidRequestGenreReset() {
         databaseService.removeId()
     }
 }

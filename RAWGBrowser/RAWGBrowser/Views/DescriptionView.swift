@@ -25,7 +25,7 @@ class DescriptionView: UIView {
 
     let textView: UITextView = {
         let textView = UITextView()
-        textView.textColor = ColorConstants.orangeAccent
+        textView.textColor = ColorConstants.textColor
         textView.backgroundColor = .clear
         textView.font = UIFont(name: "Thonburi", size: 15)
         return textView

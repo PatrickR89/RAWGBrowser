@@ -63,6 +63,10 @@
 		CDEA327829B8AB6F005D6FFB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CDEA327729B8AB6F005D6FFB /* FirebaseStorage */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CDEA327A29B8BD2A005D6FFB /* FirebaseDatabaseSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CDEA327929B8BD2A005D6FFB /* FirebaseDatabaseSwift */; };
 		CDEA327C29B8C3C1005D6FFB /* RAWGViewModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA327B29B8C3C1005D6FFB /* RAWGViewModelsTests.swift */; };
+		CDEA327E29B91418005D6FFB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA327D29B91418005D6FFB /* SettingsViewController.swift */; };
+		CDEA328029B91457005D6FFB /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA327F29B91457005D6FFB /* SettingsController.swift */; };
+		CDEA328229B9150A005D6FFB /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA328129B9150A005D6FFB /* SettingsCell.swift */; };
+		CDEA328429B9173B005D6FFB /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA328329B9173B005D6FFB /* SettingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +123,10 @@
 		CDEA325D29B8A745005D6FFB /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
 		CDEA325F29B8A751005D6FFB /* MockDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDatabaseService.swift; sourceTree = "<group>"; };
 		CDEA327B29B8C3C1005D6FFB /* RAWGViewModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAWGViewModelsTests.swift; sourceTree = "<group>"; };
+		CDEA327D29B91418005D6FFB /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		CDEA327F29B91457005D6FFB /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		CDEA328129B9150A005D6FFB /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		CDEA328329B9173B005D6FFB /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +236,7 @@
 				CDEA317429B5DA41005D6FFB /* OnboardingViewController.swift */,
 				CDEA31B029B741BA005D6FFB /* GameListViewController.swift */,
 				CDEA31BC29B75F52005D6FFB /* GameDetailViewController.swift */,
+				CDEA327D29B91418005D6FFB /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -248,6 +257,7 @@
 				CDEA319629B5E5E0005D6FFB /* GenreViewModel.swift */,
 				CDEA31B429B7421E005D6FFB /* GameListElementViewModel.swift */,
 				CDEA31BE29B75F6E005D6FFB /* GameDetailViewModel.swift */,
+				CDEA328329B9173B005D6FFB /* SettingViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -262,6 +272,7 @@
 				CDEA31C229B768C2005D6FFB /* GameDetailViewCell.swift */,
 				CDEA31C429B76CC7005D6FFB /* HeroImageView.swift */,
 				CDEA31C929B7D0D6005D6FFB /* DescriptionView.swift */,
+				CDEA328129B9150A005D6FFB /* SettingsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,6 +283,7 @@
 				CDEA319429B5E5C6005D6FFB /* OnboardingController.swift */,
 				CDEA31B229B741C6005D6FFB /* GameListController.swift */,
 				CDEA31C029B767FC005D6FFB /* GameDetailsController.swift */,
+				CDEA327F29B91457005D6FFB /* SettingsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -464,15 +476,19 @@
 				CDEA319729B5E5E0005D6FFB /* GenreViewModel.swift in Sources */,
 				CDEA31CE29B7EAEE005D6FFB /* UILabel+Extension.swift in Sources */,
 				CDEA31BB29B7588E005D6FFB /* GameModel.swift in Sources */,
+				CDEA328429B9173B005D6FFB /* SettingViewModel.swift in Sources */,
 				CDEA31B529B7421E005D6FFB /* GameListElementViewModel.swift in Sources */,
 				CDEA31AB29B72A19005D6FFB /* WaitingNotificationView.swift in Sources */,
 				CDEA31A929B727B0005D6FFB /* ServiceNotificationView.swift in Sources */,
 				CDEA31E829B87E96005D6FFB /* NavigationController.swift in Sources */,
+				CDEA327E29B91418005D6FFB /* SettingsViewController.swift in Sources */,
 				CDEA324329B88607005D6FFB /* DatabaseService.swift in Sources */,
 				CDEA319529B5E5C6005D6FFB /* OnboardingController.swift in Sources */,
 				CDEA319029B5DE59005D6FFB /* GenreModels.swift in Sources */,
 				CDEA31B329B741C6005D6FFB /* GameListController.swift in Sources */,
+				CDEA328029B91457005D6FFB /* SettingsController.swift in Sources */,
 				CDEA318729B5DB54005D6FFB /* MainCoordinator.swift in Sources */,
+				CDEA328229B9150A005D6FFB /* SettingsCell.swift in Sources */,
 				CDEA317329B5DA41005D6FFB /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

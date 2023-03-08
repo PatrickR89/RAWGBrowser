@@ -61,6 +61,7 @@ class GameViewCell: UITableViewCell {
     func setupUI() {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
+        selectionStyle = .none
         addPosterImageViewSubview()
         addNameLabelSubview()
         addImageShaderSubview()

@@ -15,7 +15,7 @@ protocol GameListViewControllerDelegate: AnyObject {
 
 /// `Action protocol` which notifies ``MainCoordinator`` about request for closing self and reseting selected genre ID
 protocol GameListViewControllerActions: AnyObject {
-    func viewControllerDidRequestClose()
+    func viewControllerDidRequestSettings()
 }
 
 /// `UIViewController` presenting list of games recieved from ``APIService`` for selected Genre
@@ -71,10 +71,10 @@ class GameListViewController: UIViewController {
     /// Method adding `UIBarButtonItem` to `navigation`
     private func addNavigationItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(
-            image: UIImage(systemName: "xmark"),
+            image: UIImage(systemName: "line.3.horizontal"),
             style: .plain,
             target: self,
-            action: #selector(didTapCloseButton))
+            action: #selector(didTapSettingsButton))
     }
 
     /// Method which customizes the appearance of `UINavigationBar`
@@ -98,9 +98,10 @@ class GameListViewController: UIViewController {
         view.layer.insertSublayer(gradient, at: 0)
     }
 
-    /// Method called by tapping `closeButton` in `navigationBar`
-    @objc private func didTapCloseButton() {
-        actions?.viewControllerDidRequestClose()
+    /// Method called by tapping `settingsButton` in `navigationBar`
+    @objc private func didTapSettingsButton() {
+
+        actions?.viewControllerDidRequestSettings()
     }
 }
 
