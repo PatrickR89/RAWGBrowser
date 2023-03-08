@@ -34,7 +34,7 @@ extension UIButton {
         backgroundColor = ColorConstants.greenAccent
         setTitleColor(ColorConstants.darkBackground, for: .normal)
         setTitle("Explore", for: .normal)
-        titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        titleLabel?.font = UIFont(name: "Thonburi", size: 20)
 
         return self
     }

@@ -28,7 +28,7 @@ extension UILabel {
     /// - Returns: styled `UILabel`
     func createNameLabel() -> UILabel {
         textColor = ColorConstants.orangeAccent
-        font = UIFont.systemFont(ofSize: 15, weight: .bold)
+        font = UIFont(name: "Thonburi-Bold", size: 15)
         numberOfLines = 0
         layer.zPosition = 100
 
@@ -38,7 +38,7 @@ extension UILabel {
     /// Method creates styled `UILabel` presents Game rating for ``GameViewCell``
     /// - Returns: styled `UILabel`
     func createRatingLabel() -> UILabel {
-        font = UIFont.systemFont(ofSize: 10)
+        font = UIFont(name: "Thonburi", size: 10)
         textColor = ColorConstants.textColor
         frame.size = CGSize(width: 30, height: 10)
 

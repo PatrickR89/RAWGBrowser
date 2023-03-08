@@ -64,6 +64,7 @@ class GameViewCell: UITableViewCell {
         addPosterImageViewSubview()
         addNameLabelSubview()
         addImageShaderSubview()
+        addRatingLabelSubview()
     }
 
 

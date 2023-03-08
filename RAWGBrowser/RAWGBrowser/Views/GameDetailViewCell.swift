@@ -13,6 +13,7 @@ class GameDetailViewCell: UITableViewCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.textColor = ColorConstants.greenAccent
+        label.font = UIFont(name: "Thonburi", size: 15)
         return label
     }()
 
@@ -47,7 +48,7 @@ class GameDetailViewCell: UITableViewCell {
             label.textColor = ColorConstants.textColor
             label.text = value
             label.numberOfLines = 0
-            label.font = UIFont.systemFont(ofSize: 15)
+            label.font = UIFont(name: "Thonburi", size: 15)
             stackView.addArrangedSubview(label)
         }
     }

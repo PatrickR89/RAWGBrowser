@@ -28,13 +28,14 @@ class GenreDetailViewCell: UICollectionViewCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = ColorConstants.textColor
-        label.font = UIFont.systemFont(ofSize: 40)
+        label.font = UIFont(name: "Thonburi", size: 40)
         label.numberOfLines = 0
         return label
     }()
 
     let gameCountLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(name: "Thonburi", size: 15)
         label.textColor = ColorConstants.textColor
         return label
     }()

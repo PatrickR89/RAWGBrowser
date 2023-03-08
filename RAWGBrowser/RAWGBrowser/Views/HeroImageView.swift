@@ -34,7 +34,7 @@ class HeroImageView: UIView {
 
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25, weight: .semibold)
+        label.font = UIFont(name: "Thonburi-Bold", size: 25)
         label.textColor = ColorConstants.orangeAccent
         label.layer.zPosition = 100
         return label
