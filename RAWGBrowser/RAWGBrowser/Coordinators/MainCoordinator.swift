@@ -16,6 +16,8 @@ class MainCoordinator {
     var onboardingController: OnboardingController?
     var gameListController: GameListController?
     var gameDetailsController: GameDetailsController?
+    var notificationWindow: UIWindow?
+    var windowScene: UIWindowScene?
 
     init(_ navController: UINavigationController, _ networkService: APIService, _ databaseService: DatabaseService) {
         self.navController = navController
@@ -48,13 +50,15 @@ class MainCoordinator {
 
         let frame = CGRect(
             x: 0,
-            y: yPosition,
+            y: 0,
             width: UIScreen.main.bounds.width,
             height: UIScreen.main.bounds.height / 2)
 
         DispatchQueue.main.async {
             let serviceNotification = ServiceNotificationView(frame: frame, message: message)
-            self.navController.view.addSubview(serviceNotification)
+            serviceNotification.delegate = self
+            self.createNotificationWindow(in: frame)
+            self.notificationWindow?.addSubview(serviceNotification)
         }
     }
 
@@ -68,21 +72,46 @@ class MainCoordinator {
 
         let frame = CGRect(
             x: 0,
-            y: yPosition,
+            y: yPosition - yPosition / 2,
             width: UIScreen.main.bounds.width,
             height: UIScreen.main.bounds.height / 2)
 
         DispatchQueue.main.async {
             let serviceNotification = WaitingNotificationView(frame: frame)
-            self.navController.view.addSubview(serviceNotification)
+            self.createNotificationWindow(in: frame)
+            self.notificationWindow?.addSubview(serviceNotification)
         }
+    }
+
+    /// Method which adds `UIWindowScene` value to ``MainCoordinator``, in order to present ``notificationWindow``
+    /// - Parameter scene: `UIWindowScene` passed from `SceneDelegate`
+    func addWindowScene(_ scene: UIWindowScene) {
+        self.windowScene = scene
+    }
+
+    /// Method to add new `UIWindow` instance in order to present spinner or warning label
+    /// - Parameter frame: `CGRect` frame which will become window's frame
+    func createNotificationWindow(in frame: CGRect) {
+        notificationWindow = UIWindow(frame: frame)
+        notificationWindow?.windowLevel = .alert
+        notificationWindow?.layer.zPosition = CGFloat(Float.greatestFiniteMagnitude) - 10
+        notificationWindow?.isUserInteractionEnabled = false
+        notificationWindow?.isHidden = false
+        guard let windowScene = windowScene else {return}
+        notificationWindow?.windowScene = windowScene
+    }
+
+    /// Method to destroy notification window
+    func destroyNotificationWindow() {
+        notificationWindow = nil
     }
 
     /// Method to remove loading spinner on recieved response or error
     private func removeSpinner() {
         DispatchQueue.main.async {
-            if let spinner = self.navController.view.subviews.first(where: {$0 as? WaitingNotificationView != nil}) {
+            if let spinner = self.notificationWindow?.subviews.first(where: {$0 as? WaitingNotificationView != nil}) {
                 spinner.removeFromSuperview()
+                self.destroyNotificationWindow()
             }
         }
     }
@@ -125,6 +154,13 @@ class MainCoordinator {
     }
 }
 
+extension MainCoordinator: ServiceNotificationViewDelegate {
+    /// Delegate method from ``ServiceNotificationView`` with call to destroy ``notificationWindow`` after view was removed from it's parent
+    func viewDidRemoveSelf() {
+        destroyNotificationWindow()
+    }
+}
+
 extension MainCoordinator: GenreDetailViewCellAction {
     func cellDidRecieveTap(for genreId: Int) {
         databaseService.saveGenreId(genreId)
@@ -132,6 +168,7 @@ extension MainCoordinator: GenreDetailViewCellAction {
 }
 
 extension MainCoordinator: GameListViewControllerActions {
+    /// Delegate method called from ``GameListViewController`` in order to open ``SettingsViewController``
     func viewControllerDidRequestSettings() {
         let viewController = SettingsViewController()
         viewController.delegate = self
@@ -140,6 +177,7 @@ extension MainCoordinator: GameListViewControllerActions {
 }
 
 extension MainCoordinator: SettingsViewControllerDelegate {
+    /// Delegate method from ``SettingsViewController`` to remove genre id and return to ``OnboardingViewController``
     func viewControllerDidRequestGenreReset() {
         databaseService.removeId()
     }

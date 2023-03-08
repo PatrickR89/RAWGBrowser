@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol ServiceNotificationViewDelegate: AnyObject {
+    func viewDidRemoveSelf()
+}
+
 /// `UIView class` which is presented in case of errors, in order to provide user with error information
 class ServiceNotificationView: UIView {
+
+    weak var delegate: ServiceNotificationViewDelegate?
 
     let notificationLabel: UILabel = {
         let label = UILabel().createNotificationLabel()
@@ -45,6 +51,7 @@ class ServiceNotificationView: UIView {
     func removeSelf() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.removeFromSuperview()
+            self.delegate?.viewDidRemoveSelf()
         }
     }
 }

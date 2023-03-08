@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// `Controller class` for ``SettingsViewController``
 class SettingsController {
 
     var settingOptions = [SettingViewModel]() {
@@ -21,9 +22,15 @@ class SettingsController {
         addSettings()
     }
 
+    /// Method to create dataSource for `UITableView` in ``SettingsViewController``
+    /// - Parameter tableView: tableView which will recieve diffableDataSource as it's dataSource
     func createDataSource(for tableView: UITableView) {
-        let diffableDataSource = UITableViewDiffableDataSource<String, String>(tableView: tableView) { [weak self] tableView, indexPath, itemIdentifier in
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "setting cell", for: indexPath) as? SettingsCell else {
+        let diffableDataSource = UITableViewDiffableDataSource<
+            String, String
+        >(tableView: tableView) { [weak self] tableView, indexPath, itemIdentifier in
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: "setting cell",
+                for: indexPath) as? SettingsCell else {
                 fatalError("Cell not found")
             }
 
@@ -38,11 +45,15 @@ class SettingsController {
         updateSnapshot()
     }
 
+    /// Method to add one required Settings Option
     func addSettings() {
-        let settingOption = SettingViewModel(title: "Reset genre", imageName: "arrow.triangle.2.circlepath")
+        let settingOption = SettingViewModel(
+            title: "Reset genre",
+            imageName: "arrow.triangle.2.circlepath")
         settingOptions.append(settingOption)
     }
 
+    /// Method to update tableView dataSource
     func updateSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<String, String>()
 
